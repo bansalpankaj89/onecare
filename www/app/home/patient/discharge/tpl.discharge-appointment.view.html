@@ -1,0 +1,37 @@
+<style type="text/css">
+    .medi_calendar_modal {
+        background: white;
+    }
+</style>
+<div class="row">
+    <div class="col col-50">
+            <medi-calendar appointment-obj="appointment" on-date-selected="appointmentDateSelected(selectedDate)"></medi-calendar>
+    </div>
+    <div class="col col-50">
+        <label class="item"> 
+            <span class="input-label">Department</span>
+            <span class="input-text">
+                
+            </span>
+        </label>
+        <label class="item">            
+            <span class="input-label">Designation</span>
+            <span class="input-text">
+                
+            </span>
+        </label>
+        <label class="item"> 
+            <span class="input-label">Person</span>
+            <span class="input-text">
+                
+            </span>
+        </label>
+        <label class="item item-input">
+            <span class="input-label">Remarks</span>
+            <span class="input-text">
+                <textarea rows="10" cols="30" placeholder="Remarks" ng-model="dischargeAppointment.remarks">
+                </textarea>
+            </span>
+        </label>  
+    </div>
+</div>

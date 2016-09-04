@@ -1,0 +1,409 @@
+
+/* Empty. Add your own CSS if you like */
+@font-face {
+    font-family: 'fontawesome';
+    src:url('../fonts/fontawsome-webfont.eot');
+    src:url('../fonts/fontawsome-webfont.eot') format('embedded-opentype'),
+        url('../fonts/fontawsome-webfont.woff') format('woff'),
+        url('../fonts/fontawsome-webfont.ttf') format('truetue'),
+        url('../fonts/fontawsome-webfont.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.input-label {
+    font-size: 17px;
+    color: #444;
+}
+
+.item-input input[type="text"],
+.item-input input[type="date"],
+.item-input input[type="tel"],
+.item-input textarea{    
+    font-size: 17px;
+    background: #fcfcfc;
+    padding-left: 3px;
+    margin-right: 14px;
+}
+
+.item-select select{
+    font-size: 17px;
+    padding-top: 10px;
+    line-height: 30px;
+    height: 50px;
+}
+
+.avatar-pic {
+    border-radius: 50%;
+    border: 2px solid white;
+    width: 30px;
+    height: 30px;
+}
+
+.h5, h5 {
+    font-size: 18px;
+}
+
+.menu-picture {
+    border-radius: 50%;
+    border: 2px solid white;
+    width: 30px;
+    height: 30px;
+    margin-top: 3px !important;
+}
+
+.toolbar-txt-color2 {
+   color:#1F64BC
+}
+
+.card-patient-critical{
+    border-left: 10px solid #ff0000;
+}
+
+.card-patient-recovery{
+    border-left: 10px solid #33cd5f;
+}
+
+.card-patient-dead{
+    border-left: 10px solid #000000;
+}
+
+.card-patient{
+    border-left: 10px solid #ffffff;
+}
+
+
+.patient-card-btn{
+    width: 60px;
+    padding: 15px 10px;
+    font-size: 10px;
+}
+
+.search-bar {
+  background: none;
+  width: 100%;
+  height: 40px;
+  z-index: 3;
+/*    margin-top: -10px;*/
+}
+.search-bar .item {
+  background: none;
+  border: none;
+}
+
+.search-button button {    
+    top: 7px;
+    right: 5px;
+}
+
+.toolbar-bk-color {
+    background: #1F64BC; /* For browsers that do not support gradients */    
+    background: -webkit-linear-gradient(left top, #0f315b,#3064a2); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(bottom right, #0f315b,#3064a2); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(bottom right, #0f315b,#3064a2); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to bottom right, #0f315b,#3064a2); /* Standard syntax (must be last) */
+}
+
+md-pagination-wrapper {
+    width: 100%;
+}
+
+md-tab-item{
+    width:20%;
+}
+
+.md-tab{
+  padding: 5px 18px !important;
+  line-height: normal !important;
+}
+
+.scroll-content .scroll {
+    height: 100%;
+}
+
+.assigned-doctors ul.list {
+    display: inline-block;
+    padding-left: 10px;
+}
+
+button.button.round-button {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    min-height: 30px;
+    min-width: 30px;
+    margin-top: 6px;
+}
+
+button.button.round-button i.icon {
+    margin-left: -3px;
+}
+
+li.item.vertical-list-item {
+    display: inline-block;
+    padding: 2px;
+    background: transparent;
+    border: none;
+}
+
+ul.list.list-search-text {
+    margin-bottom: 0px;
+}
+
+ul.list.list-search-text li {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+ul.list.list-search-text li input[type=search] {
+    
+    width: 100%;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.sub-list {    
+    margin-left: -16px;
+    margin-right: -16px;
+    margin-top: 16px;
+}
+
+.list .item.item-accordion {
+  /*line-height: 38px;
+  padding-top: 0;
+  padding-bottom: 0;
+  transition: 0.09s all linear;
+ background-color: aliceblue;*/
+}
+
+.item-accordion.active,
+.row.active {
+    background-color: #fafafa !important
+}
+.list .item.item-accordion.ng-hide {
+  line-height: 0px;
+}
+.list .item.item-accordion.ng-hide-add,
+.list .item.item-accordion.ng-hide-remove {
+  display: block !important;
+}
+
+
+.list-item-multiple {
+    display: flex;
+}
+
+.list-item-center {
+    float: left;
+    align-items: center;
+    display: flex;
+    padding-left: 5px;
+    min-width: initial;
+    overflow-x: auto;
+}
+
+.list-item-right {
+    float: right;
+    display: inline-block;
+    right: 10px;
+    position: absolute;
+}
+
+.item-label {
+    display: inline-block;
+    padding-top: 15px;
+    padding-left: 5px;
+}
+
+.sub-list ion-item {
+    padding-left: 36px;
+}
+
+.control-right {
+    float: right;
+    padding-left:20px;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.control-left {
+    float: left;
+}
+
+span.align-right.ion-ios-checkmark {
+    float: right;
+
+}
+.ion-ios-checkmark:before{
+       color: #33CD5F; 
+}
+
+ion-scroll.scroll-view.ionic-scroll.overflow-scroll.scroll-xy {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+
+
+
+.avatar-pic {
+    border-radius: 50%;
+    border: 2px solid white;
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+    margin-bottom: -3px;
+}
+
+.popup-container .popup{
+    width: 90%;
+}
+
+.popup-head {
+    padding: 10px 10px;
+}
+
+.popup-head h5 {
+    font-weight: 400;
+}
+
+.popup-title {
+    font-size: 22px;
+}
+
+.staff-details {
+    padding-bottom: 5px
+}
+
+.avatar {
+    display: inline-block;
+}
+
+.avatar-pic img.avatar-pic {
+    width: 70px;
+    height: 70px;
+    margin-top: 0px;
+}
+
+.staff-info-desc {
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 10px;
+}
+
+.staff-info-desc .staff-designation {
+    padding-top: 5px;
+    text-transform: uppercase;
+}
+
+.staff-info-desc .staff-name {
+    padding-top: 10px;
+    font-weight: 700;
+    font-size: larger;
+    text-transform: uppercase;
+}
+
+.medication-prescription .item-input,
+.medication-test .item-input,
+.patient-observation .item-input {
+    padding: 0px !important;
+}
+
+.medication-prescription .item-input .label-text,
+.medication-test .item-input .label-text,
+.patient-observation .item-input .label-text {
+    padding-right: 5px;
+}
+
+.detail-button {
+    width: 33%;
+    text-align: center;
+}
+
+span.detail-button-text {
+    display: block;
+    font-size: smaller;
+}
+
+ion-item.item-button-command.item {  
+    padding-top: 6px !important;
+    padding-bottom: 10px !important;
+}
+/*
+.fa-link: before {
+  display: inline-block;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  text-rendering: auto;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.fa-link: before{
+    font-family: 'fontawesome';
+    content: f0c1;
+}
+
+.align-center {
+    text-align: center !important;
+}
+
+select > option {
+    padding: 3px;
+}
+
+.history-list {
+    padding-top: 2px ;
+    padding-bottom: 2px;
+}
+
+
+.message-input input[type=text] {
+    background: #D8D8D8;
+    padding: 5px;
+}
+
+.appointment-edit textarea.notes {
+    padding: 10px;
+    min-height: 100px;
+}
+*/
+
+/*detail-view css*/
+.patient-transaction-save-btn {
+    margin-top: 0px !important;
+}
+
+
+
+.item-divider {
+    padding: 5px 15px;
+}
+
+/*
+.input-text {    
+    width: inherit;
+    padding-right: 5px;
+}
+*/
+
+.taskList-statusbar {
+        border-left: 5px solid #387ef5 !important
+    }
+.headder {
+        text-align: center;
+        font-size: x-large;
+/*    margin-bottom: 15px;*/
+    }
+
+.break-word {
+    white-space: normal;
+}
+
+.title.title-center.header-item {
+    font-size: 20px;
+}

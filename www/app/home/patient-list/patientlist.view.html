@@ -1,0 +1,103 @@
+
+<style type="text/css">
+
+    .patient-list-view p {
+        white-space: normal;
+    }
+    
+    .patient-list-view .item-content {
+        padding-left: 2px !important;
+        padding-right: 20px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .patient-list {
+        margin-top: -10px;
+    }
+    .patient-name {
+        font-size: 20px;
+    }
+    .patient-description {
+        padding-left: 30px;
+        font-size: 15px !important;
+    }
+    barcode-scanner {
+        padding-left: 10px;
+    }
+</style>
+
+<ion-view view-title="Patient List" hide-back-button="false">
+<ion-nav-buttons side="right">
+    <button class="button button-icon ion-person-add" ui-sref="home.patient.admission"></button>
+</ion-nav-buttons> 
+    <ion-header-bar class="bar-light bar-subheader">
+        <div class="search-bar patient-list">
+            <div class="item item-input-inset">
+              <label class="item-input-wrapper" class="search-input">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" placeholder="Search" ng-model="patListCtrl.patientSearch">
+              </label>
+              <barcode-scanner on-scan="searchAdmission(barcodeData)"><button class="button button-dark">Scan Ticket</button></barcode-scanner>
+            </div>
+        </div>        
+    </ion-header-bar>
+    <ion-content>
+    
+  <ion-refresher on-refresh="patListCtrl.loadAdmissions()" pulling-icon="ion-load-d" spinner="ios-small"></ion-refresher>
+    <ion-list class="patient-list-view">
+        <ion-item ng-repeat="patient in patListCtrl.patientList | filter:patListCtrl.patientSearch"  
+            class="card item-remove-animate" ng-class="{'card-patient-critical': patient.rank == 5, 'card-patient-recovery': patient.rank == 2, 'card-patient-dead': patient.rank == 6 , 'card-patient' : patient.rank == 3 }">
+            <div class="row" style="color: #3064a2">
+              <div class="col col-90" ng-click="patListCtrl.patientDetail(patient)">                
+                <p>
+                    <ng-md-icon class="toolbar-txt-color2" icon="person_outline"></ng-md-icon>
+                    <span class="patient-name">{{patient.patient.name | limitTo:35 }} </span>
+                </p>
+                <p class="patient-description">{{patient.patient.gender | uppercase}} | {{patient.admission_date}}</p>
+              </div>
+              <div class="col">
+                <ng-md-icon style="float: right;" class="toolbar-txt-color2" icon="notifications_none" ng-click="patListCtrl.notification(patient)">
+                </ng-md-icon>
+              </div>
+            </div>
+
+            <div class="row" style="color: #3064a2">
+              <div class="col col-90" ng-click="patListCtrl.patientDetail(patient)">
+                <ng-md-icon icon="local_hotel" class="toolbar-txt-color2"></ng-md-icon> 
+                <span style="font-weight: 500;">{{patient.beddetails.ward_no}}  {{patient.beddetails.bed_no}}</span>
+              </div>
+              <div class="col">
+               <ng-md-icon style="float: right;" icon="note_add" class="toolbar-txt-color2" ng-click="popover.show($event)"></ng-md-icon>
+              </div>
+            </div>
+      <!--     <div style="padding-bottom: 12px;color: #3064a2">
+              <ng-md-icon class="toolbar-txt-color2" icon="person_outline"></ng-md-icon>
+               <b>{{patient.patient.name | limitTo:35 }} </b>( {{patient.patient.gender | uppercase}} | {{patient.admission_date}} )
+            <ng-md-icon style="float: right;" class="toolbar-txt-color2" icon="notifications_none" ng-click="popover.show($event)">
+            </ng-md-icon>
+          </div>
+          <div style="color: #3064a2">
+          <ng-md-icon icon="local_hotel" class="toolbar-txt-color2"></ng-md-icon> 
+            <span style="font-weight: 500;">{{patient.beddetails.ward_no}}  
+            {{patient.beddetails.bed_no}}</span>
+             <ng-md-icon style="float: right;" icon="note_add" class="toolbar-txt-color2" ng-click="popover.show($event)"></ng-md-icon>
+          </div> -->
+        <ion-option-button class="button-calm patient-card-btn" ng-click="patListCtrl.confirmUnfollow(patient)">
+        <div><ng-md-icon icon="do_not_disturb" size="30"></ng-md-icon><br>Unfollow</div>
+        </ion-option-button>   
+        <ion-option-button class="button-assertive patient-card-btn" ng-click="patListCtrl.confirmCall(patient.patient.contact)">
+        <div><ng-md-icon icon="phone_in_talk" size="30"></ng-md-icon><br>Call</div>
+        </ion-option-button>
+        <ion-option-button class="button-calm patient-card-btn" ng-click="patListCtrl.confirmConsult(patient)">
+        <div><ng-md-icon icon="repeat" size="30"></ng-md-icon><br>Consult</div>
+        </ion-option-button> 
+        <ion-option-button class="button-assertive patient-card-btn" ng-click="patListCtrl.confirmTransfer(patient)">
+        <div><ng-md-icon icon="import_export" size="30"></ng-md-icon><br>Transfer</div>
+        </ion-option-button>
+        <ion-option-button class="button-calm patient-card-btn" ng-click="patListCtrl.confirmDischarge(patient)">
+        <div><ng-md-icon icon="thumb_up" size="30"></ng-md-icon><br>Discharge</div>
+        </ion-option-button> 
+        </ion-item>
+    </ion-list>
+    </ion-content>
+</ion-view>

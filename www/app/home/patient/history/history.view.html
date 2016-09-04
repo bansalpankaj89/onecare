@@ -1,0 +1,114 @@
+<style type="text/css">
+    .no-pad {
+        padding: 0px;
+    }
+    
+    .item.item-accordion {
+        padding: 5px;
+    }
+    
+    .break-word {
+        white-space: normal;
+    }
+    
+    .divider-title {
+        text-align: center;
+    }
+    
+    .divider-title h4 {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+    
+    .history-data .item {
+        border: 0px;
+    }
+    
+/*    http://www.epson.com.sg/epson_singapore/printers_and_all_in_ones/pos/product.page?product_name=Epson_TM-U220#*/
+    span.input-text {
+           margin-right: 65px;
+    width: 100%;
+    }
+    
+</style>
+  <ion-content class="padding" start-y="120">
+   <div class="list history-data">
+      <div ng-repeat="history in patHistory.patientHistoryList | orderBy: 'admissionInfo.admission_date'">
+           <div class="row">
+               <div class="col">
+                   <div class="divider-title">
+                       <h4>Admission Date - {{history.admissionInfo.admission_date}} - Discharge Date - {{history.dischargeInfo.discharge_date}}</h4>
+                   </div>
+               </div>
+           </div>
+           <div class="row">
+               <div class="col col-50">
+                    <label class="item item-input">
+                        <span class="input-label">Admission NO</span>
+                        <span class="input-label">{{history.admissionInfo.admission_no}}</span>
+                    </label>
+                    <label for="" class="item item-input">
+                        <span class="input-label">Ward No</span>
+                        <span class="input-label">{{history.admissionInfo.ward_no}}</span>
+                    </label>
+                    <label for="" class="item item-input">
+                        <span class="input-label">Bed No</span>
+                        <span class="input-label">{{history.admissionInfo.bed_no}}</span>
+                    </label>
+                    <label for="" class="item item-input break-word">
+                        <span class="input-label">Diagnosis</span>
+                        <span class="input-text">{{history.admissionInfo.diagnosis}}</span>
+                    </label>
+                    <label for="" class="item item-input break-word">
+                        <span class="input-label">Procedures</span>
+                        <span class="input-text">{{history.admissionInfo.procedures}}</span>
+                    </label>
+                    <label for="" class="item item-input break-word">
+                        <span class="input-label">Medications</span>
+                        <span class="input-text">{{history.admissionInfo.prescriptions}}</span>
+                    </label>
+                    <label for="" class="item item-input break-word">
+                        <span class="input-label">Medical Examinations</span>
+                        <span class="input-text">
+                            <ul>
+                                <li ng-repeat="examination in history.admissionInfo.medicalExaminations"
+                                   ng-click="loadExaminationDetail(examination.reference_id)">
+                                    {{examination.description}}
+                                </li>
+                            </ul>
+                        </span>
+                    </label>
+               </div>         
+               <div class="col col-50">
+                    <label class="item item-input">
+                        <span class="input-label">Discharge Officer</span>
+                        <span class="input-label">Dr. Rajive Nirmalasingam</span>
+                    </label>
+                    <label for="" class="item item-input">
+                        <span class="input-label">Discharge Status</span>
+                        <span class="input-label">{{history.dischargeInfo.discharge_status}}</span>
+                    </label>
+                    <label for="" class="item item-input">
+                        <span class="input-label">Condition On <br/>Discharge</span>
+                        <span class="input-text break-word">{{history.dischargeInfo.condition}}</span>
+                    </label>
+                    <label for="" class="item item-input">
+                        <span class="input-label">Discharge <br/> Instructions</span>
+                        <span class="input-text break-word">{{history.dischargeInfo.instruction}}</span>
+                    </label>
+                    <label for="" class="item item-input">
+                        <span class="input-label">Discharge <br/>Medications</span>
+                        <span class="input-label">Non</span>
+                    </label>
+                    <label for="" class="item item-input">
+                        <span class="input-label">Follow up <br/>Appointments</span>
+                        <span class="input-label">Non</span>
+                    </label>
+                </div>        
+           </div>
+           <hr>
+       </div>
+   </div>
+   
+  </ion-content>  
+</ion-view>

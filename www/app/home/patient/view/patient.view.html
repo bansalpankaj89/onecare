@@ -1,0 +1,70 @@
+<style type="text/css">
+    md-pagination-wrapper {
+        width: 100% !important;
+    }
+</style>
+   <ion-view view-title="{{patientName}}" hide-back-button="false">
+    <ion-content>
+        <div layout="column" class="relative" layout-fill role="main">
+          <md-content layout-fill>
+            <md-tabs md-selected="selectedIndex" md-align-tabs="top" layout-fill>
+                  <md-tab id="tab1" >
+                    <md-tab-label>
+                      <div style="font-size: 8px;" ng-click="menuClicked('details')"><ng-md-icon icon="details"></ng-md-icon><br>Details</div>
+                    </md-tab-label> 
+                    <md-tab-body>                    
+                        <ion-nav-view name="detail"></ion-nav-view>
+<!--                       <medi-patient-detail></medi-patient-detail>-->
+                    </md-tab-body>
+                  </md-tab>
+                  <md-tab id="tab2">
+                    <md-tab-label >
+                        <div style="font-size: 8px;" ng-click="menuClicked('timeline')"><ng-md-icon icon="share"></ng-md-icon><br>Timeline</div>
+                    </md-tab-label>
+                    <md-tab-body>
+                        <ion-nav-view name="time-line"></ion-nav-view>
+<!--                      <medi-patient-timeline></medi-patient-timeline>-->
+                    </md-tab-body>
+                  </md-tab>
+                  <md-tab id="tab3">
+                    <md-tab-label >
+                      <div style="font-size: 8px;" ng-click="menuClicked('media')"><ng-md-icon icon="camera_alt"></ng-md-icon><br>Media</div>
+                    </md-tab-label>
+                    <md-tab-body>
+                        <ion-nav-view name="media"></ion-nav-view>
+<!--                     <medi-patient-media></medi-patient-media>-->
+                    </md-tab-body>
+                  </md-tab>
+                  <md-tab id="tab4">
+                    <md-tab-label >
+                        <div style="font-size: 8px;" ng-click="menuClicked('notification')"><ng-md-icon icon="notifications"></ng-md-icon><br>Notification</div>
+                    </md-tab-label>
+                    <md-tab-body>
+                        <ion-nav-view name="notification"></ion-nav-view>
+<!--                     <medi-patient-notification></medi-patient-notification>-->
+                    </md-tab-body>
+                  </md-tab>
+                  <md-tab id="tab5">
+                    <md-tab-label >
+                        <div style="font-size: 8px;" ng-click="menuClicked('history')"><ng-md-icon icon="history"></ng-md-icon><br>History</div>
+                    </md-tab-label>
+                    <md-tab-body>
+                        <ion-nav-view name="history"></ion-nav-view>
+<!--                        <medi-patient-hsitory></medi-patient-hsitory>-->
+                    </md-tab-body>
+                  </md-tab>
+            </md-tabs>                            
+          </md-content>
+        </div>
+        <ion-footer-bar class="bar bar-positive"  ng-show="patientButtonShow">
+            <button class="button button-block button-positive patient-transaction-save-btn"
+                     ng-click="saveVisitInfo()">
+                      Save visit Info
+            </button>
+        </ion-footer-bar>
+    </ion-content>
+</ion-view>
+
+
+
+

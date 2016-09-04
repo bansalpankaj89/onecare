@@ -1,0 +1,70 @@
+<style type="text/css">
+    .dtp-input .ion-ios-arrow-up.control-btn {
+         background: white;
+        font-size: 40px;
+        /* left: -2px; */
+        top: -6px;
+    }
+    
+    .dtp-input .ion-ios-arrow-down.control-btn {
+         background: white;
+        font-size: 40px;
+        /* left: -2px; */
+        top: 6px;
+    }
+</style>
+   <div class="dtp-container">
+    <div class="dtp-input">
+       <div class="row">
+            <div class="col">
+                <a class="button ion-ios-arrow-up button-clear button-dark control-btn" ng-click="increaseDate()"></a>
+            </div>            
+            <div class="col">
+                <a class="button ion-ios-arrow-up button-clear button-dark control-btn" ng-click="increaseMonth()"></a>
+            </div>            
+            <div class="col">
+                <a class="button ion-ios-arrow-up button-clear button-dark control-btn" ng-click="increaseYear()"></a>
+            </div>        
+            <div class="col">
+                <a class="button ion-ios-arrow-up button-clear button-dark control-btn" ng-click="increaseHour()"></a>
+            </div>     
+            <div class="col">
+                <a class="button ion-ios-arrow-up button-clear button-dark control-btn" ng-click="increaseMinute()"></a>
+            </div>  
+        </div>
+        <div class="row">
+            <div class="col">
+                <span class="medi-dtp-input">{{date | fixedNumberLen: 2}}</span>
+            </div> -          
+            <div class="col">
+                <span class="medi-dtp-input">{{month | fixedNumberLen: 2}}</span>
+            </div> -           
+            <div class="col">
+                <span class="medi-dtp-input">{{year}}</span>
+            </div>        
+            <div class="col">
+                <span class="medi-dtp-input">{{hour | fixedNumberLen: 2}}</span>
+            </div> :  
+            <div class="col">
+                <span class="medi-dtp-input">{{minute| fixedNumberLen: 2}}</span>
+            </div>  
+        </div>
+        <div class="row">
+            <div class="col">
+                <a class="button ion-ios-arrow-down button-clear button-dark control-btn" ng-click="decreaseDate()"></a>
+            </div>            
+            <div class="col">
+                <a class="button ion-ios-arrow-down button-clear button-dark control-btn" ng-click="decreaseMonth()"></a>
+            </div>            
+            <div class="col">
+                <a class="button ion-ios-arrow-down button-clear button-dark control-btn" ng-click="decreaseYear()"></a>
+            </div>        
+            <div class="col">
+                <a class="button ion-ios-arrow-down button-clear button-dark control-btn" ng-click="decreaseHour()"></a>
+            </div>     
+            <div class="col">
+                <a class="button ion-ios-arrow-down button-clear button-dark control-btn" ng-click="decreaseMinute()"></a>
+            </div>  
+        </div>
+    </div>
+</div>

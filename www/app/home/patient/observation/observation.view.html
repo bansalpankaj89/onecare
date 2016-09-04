@@ -1,0 +1,79 @@
+<style type="text/css">
+    .right-align {
+        text-align: right;
+    }
+    
+    .taskList-statusbar {
+        border-left: 5px solid #387ef5 !important
+    }
+    
+</style>
+   <ion-view view-title="{{title}} ">
+    <ion-nav-buttons side="right">
+        <button class="button button-icon ion-plus-round" ng-click="patObsvCtrl.newObservation()"></button>
+    </ion-nav-buttons>
+    <ion-content>
+        <ion-refresher on-refresh="patObsvCtrl.doRefresh()" pulling-icon="ion-load-d" spinner="ios-small"></ion-refresher>
+                    
+        <div layout="column" class="relative" layout-fill role="main">
+           <div class="row responsive-md">
+               <div class="col headder">Observations</div>
+           </div>
+            <div class="row responsive-md">
+                <div class="col col-40">  
+                    <div ng-repeat="obs in observationCollection| orderBy: '-date_time' ">
+                        <div ng-class="{'taskList-statusbar': selectedItem == obs }" class="item item-text-wrap"
+                          ng-click="viewDetail(obs)">
+                           <h2>{{obs.description}}</h2>
+                           <p> <i class="ion-ios-clock"></i> <span >{{obs.startTime}}</span> </p>
+                        </div>
+                    </div>
+                </div>                       
+                <div class="col col-60 ">
+                    <div style=" border: 1px solid #eeeeee;padding: 5px;">
+                    <label class="item item-input" medi-datetime-picker input-obj="startTime" mode="isView">
+				        <span class="input-label">Start Time</span>
+				        <span class="input-label">{{newObservation.startTime}}</span>                        
+                    </label>
+                    <label class="item item-input" medi-datetime-picker input-obj="endTime" mode="isView">
+				        <span class="input-label">End Time</span>
+				        <span class="input-label">{{newObservation.endTime}}</span>                        
+                    </label>
+                    <label class="item item-input row" >		
+				        <span class="input-label col col-30">Observation</span>	        
+                        <textarea class="col col-70" placeholder="Observation" rows="4" ng-model="newObservation.observationDetail" ng-disabled="isView"></textarea>                        
+                    </label>                     
+                    <label class="item item-input row" >		
+				        <span class="input-label col col-30">Remarks</span>	        
+                        <textarea class="col col-70" placeholder="Remarks" rows="4" ng-model="newObservation.remarks" ng-disabled="isView"></textarea>                        
+                    </label>
+                    <label class="item item-input" medi-draw-pad input-obj="observationImg" on-save="saveSketch(file)"
+                       media-collection="$scope.newObservation.mediaCollections" mode="isView">
+                         <button class="button">Sketch</button>
+                    </label>
+                    <div class="row" ng-disabled="isView">
+                        <div class="col col-20">                    
+                            <button class="button">
+                                <i class="ion-ios-camera-outline placeholder-icon button-icon icon"  
+                                ng-click="capturePhoto()"  ng-disabled="isView"></i>
+                            </button>
+                        </div>
+                        <div class="col col-20">
+                            <ion-spinner icon="lines" ng-show="uploading"></ion-spinner>
+                        </div>
+                        <div class="col col-60">    
+                            <input name="{{file.name}}" type="file" medi-file-upload file="file" uploaded="fileUploaded(file)"  ng-disabled="isView"/>
+                            <a class="button button-primary uploader" ng-click="upload()">Upload</a>
+                        </div>
+                    </div>
+                    <ion-gallery ion-gallery-items="newObservation.mediaCollections" ng-if="newObservation.mediaCollections"></ion-gallery>                    
+                    <div class="button-bar" ng-hide="isView">
+                          <button class="button" ng-click="clear()">Clear</button>
+                          <button class="button button-positive" ng-disabled="isView" ng-click="savePatientObservation()">Save</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+    </ion-view>

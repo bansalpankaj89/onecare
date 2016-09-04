@@ -1,0 +1,16 @@
+<!-- <ion-view view-title="Patient Notification" hide-back-button="false"> -->
+
+<ion-content class="padding">
+<div class="list">
+    <a class="item item-avatar" href="#" ng-repeat="notification in patNotify.notifications">
+      <img src="img/person0.jpg">
+      <h2>{{notification.by}} &nbsp;&nbsp;:&nbsp;&nbsp;{{notification.date}}</h2>
+      <p>{{notification.remark}}</p>
+    </a>
+</div>
+</ion-content>
+  <ion-footer-bar class="bar-frosted" style="height: 15%;">
+    <textarea style="width: 90%;" ng-model='patNotify.newNotification.remark' placeholder='Send Notification...' ></textarea>
+    <button class="button button-positive icon-left ion-plus" ng-click="patNotify.addNewNotification()">Send Notification</button>
+  </ion-footer-bar>
+<!-- </ion-view> -->

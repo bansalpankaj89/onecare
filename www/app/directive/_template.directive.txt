@@ -1,0 +1,15 @@
+(function() {
+    angular.module('mediDocApp.directive')
+    .directive('directiveName', [directiveName]);
+    function directiveName() {
+        var directiveNameLink = function (scope, element, attr) {
+        
+        };
+        return {
+            restrict: 'E',
+            scope: true,
+            templateUrl: 'app/directive/directiveName.directive.html',
+            link: directiveName
+        };
+    };
+})();

@@ -1,0 +1,190 @@
+<style type="text/css">
+.input-label{
+	color: #aaaaaa;
+}
+
+</style>
+<ion-view view-title="Add Staff" hide-back-button="false">
+<ion-nav-buttons side="right">
+    <button class="button button-icon ion-android-list" ui-sref="home.stafflist"></button>
+</ion-nav-buttons> 
+<ion-content>
+<div class="list list-inset">
+	<div class="row responsive-md">
+		<div class="col">
+			<label class="item item-input item-select">
+				<i class="ion-person placeholder-icon"></i>
+				<span class="input-label">Identity Type</span>
+				<select ng-model="staffCtrl.staff.identity_type">
+					<option value="nric" ng-selected="selected">NRIC/FIN</option>
+					<option value="passport">Passport</option>
+					<option value="license">License</option>
+				</select>
+			</label>
+		</div>
+		<div class="col"> 
+			<label class="item item-input">
+				<i class="ion-person placeholder-icon"></i>
+				<input type="text" placeholder="Identity Id" ng-model="staffCtrl.staff.identity_id">
+			</label>
+		</div>
+	</div>	
+	<div class="row responsive-md"> 
+		<div class="col"> 
+			<label class="item item-input">
+				<i class="ion-person placeholder-icon"></i>
+				<input type="text" placeholder="First Name" ng-model="staffCtrl.staff.first_name">
+			</label>
+		</div>
+		<div class="col">	
+			<label class="item item-input">
+				<i class="ion-person placeholder-icon"></i>
+				<input type="text" placeholder="Last Name" ng-model="staffCtrl.staff.last_name">
+			</label>
+		</div>
+	</div>
+	<div class="row responsive-md"> 
+		<div class="col">	
+			<label class="item item-input item-select">
+				<i class="ion-female placeholder-icon"></i>
+				<span class="input-label">Gender</span>
+				<select ng-model="staffCtrl.staff.gender">
+					<option value="female" ng-selected="selected">Female</option>
+					<option value="male">Male</option>
+					<option value="other">Other</option>
+				</select>
+			</label>
+		</div>
+		<div class="col">	
+			<label class="item item-input">
+				<i class="ion-calendar placeholder-icon"></i>
+				<span class="input-label">DOB</span>
+				<input type="date" placeholder="DOB" ng-model="staffCtrl.date_of_birth">
+			</label>
+		</div>
+	</div>
+	<div class="row responsive-md"> 
+		<div class="col">	
+			<label class="item item-input item-select">
+				<i class="ion-waterdrop placeholder-icon"></i>
+				<span class="input-label">Blood Group</span>
+				<select ng-model="staffCtrl.staff.blood_group">
+					<option value="O+" selected>O+</option>
+					<option value="O-">O−</option>
+					<option value="A+">A+</option>
+					<option value="A-">A−</option>
+					<option value="B+">B+</option>
+					<option value="B-">B−</option>
+					<option value="AB+">AB+</option>
+					<option value="AB−">AB−</option>
+				</select>
+			</label>
+		</div>
+		<div class="col">	
+			<label class="item item-input">
+				<i class="ion-ios-medkit placeholder-icon"></i>
+				<input type="text" placeholder="License No" ng-model="staffCtrl.staff.license_no">
+			</label>
+		</div>
+	</div>
+	<div class="row responsive-md"> 
+		<div class="col">	
+			<label class="item item-input">
+				<i class="ion-university placeholder-icon"></i>
+				<input type="text" placeholder="Qualification" ng-model="staffCtrl.staff.qualification">
+			</label>
+		</div>
+	</div>
+	<div class="row responsive-md"> 
+		<div class="col">	
+			<label class="item item-input">
+				<i class="ion-android-call placeholder-icon"></i>
+				<input type="tel" placeholder="Contact No" ng-model="staffCtrl.staff.contact_no">
+			</label>
+		</div>
+		<div class="col">	
+			<label class="item item-input">
+				<i class="ion-android-call placeholder-icon"></i>
+				<input type="tel" placeholder="Emergency Contact No" ng-model="staffCtrl.staff.emergency_contact_no">
+			</label>
+		</div> 
+	</div>
+	<div class="row responsive-md"> 
+		<div class="col">
+			<label class="item item-input">
+				<i class="ion-ios-email placeholder-icon"></i>
+				<input type="email" placeholder="Email Id" ng-model="staffCtrl.staff.email_id">
+			</label>
+		</div>
+	</div>
+	<div class="row responsive-md"> 
+		<div class="col">
+			<label class="item item-input">
+				<i class="ion-location placeholder-icon"></i>
+				<input type="text" placeholder="Address" ng-model="staffCtrl.staff.address">
+			</label>
+		</div>
+	</div>
+	<div class="row responsive-md"> 
+		<div class="col">
+			<label class="item item-input item-select">
+				<i class="ion-medkit placeholder-icon"></i>
+				<span class="input-label">Designation</span>
+				<select ng-model="staffCtrl.staff.designation">
+					<option ng-repeat="designation in staffDesignations" value="{{designation.value}}">{{designation.description}}</option>
+				</select>
+			</label>
+		</div>
+		<div class="col">
+			<label class="item item-input item-select">
+			<i class="ion-ios-people placeholder-icon"></i>
+			<span class="input-label">Department</span>
+				<select ng-model="staffCtrl.staff.department">
+					<option ng-repeat="department in hospitalDepartments" value="{{department.value}}">{{department.description}}</option>
+				</select>
+			</label>
+		</div>
+	</div>
+	<div class="row responsive-md"> 
+		<div class="col">
+			<label class="item item-input item-select">
+			<i class="ion-ribbon-b placeholder-icon"></i>
+			<span class="input-label">Speciality</span>
+				<select ng-model="staffCtrl.staff.speciality">
+					<option ng-repeat="speciality in staffSpecialities" value="{{speciality.value}}">{{speciality.description}}</option>
+				</select>
+			</label>
+		</div>
+		<div class="col">
+			<label class="item item-input">
+			<i class="ion-person placeholder-icon"></i>
+			<input type="text" placeholder="Manager" ng-model="staffCtrl.staff.manager">
+			</label>
+		</div>
+	</div>
+    <div class="row responsive-md" ng-disabled="isView">
+        <div class="col col-10">                    
+            <button class="button">
+                <i class="ion-ios-camera-outline placeholder-icon button-icon icon"  
+                ng-click="capturePhoto()"  ng-disabled="isView"></i>
+            </button>
+        </div>
+        <div class="col col-10">
+            <ion-spinner icon="lines" ng-show="uploading"></ion-spinner>
+        </div>
+        <div class="col col-80">    
+            <input name="{{file.name}}" type="file" medi-file-upload file="file" uploaded="fileUploaded(file)"  ng-disabled="isView"/>
+            <a class="button button-primary uploader" ng-click="upload()">Upload Image</a>
+        </div>
+    </div>
+
+	<div class="padding center">
+     <button class="button button-block button-balanced" ng-click="staffCtrl.addStaff()">Add Staff</button>
+    </div>
+</div>
+
+</ion-content>
+</ion-view>
+
+      
+     

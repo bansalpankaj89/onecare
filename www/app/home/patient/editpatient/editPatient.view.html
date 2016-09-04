@@ -1,0 +1,208 @@
+<style type="text/css">
+.input-label{
+  color: #aaaaaa;
+}
+.input-readonly{
+    background-color: #f8f8f8;
+}
+
+</style>
+
+<ion-view view-title="Patient Admission" hide-back-button="false">
+
+
+<ion-content>
+<div class="list list-inset">
+    <div class="row responsive-md"> 
+        <div class="col"> 
+        <div class="divider-title" style="text-align: center;">Patient Information</div>
+       </div>
+    </div> 
+    <div class="row responsive-md"> 
+      <div class="col"> 
+        <label class="item item-input input-readonly">
+          <i class="ion-person placeholder-icon"></i>{{editPatCtrl.regPatientList.first_name}} {{editPatCtrl.regPatientList.last_name}}
+          {{editPatCtrl.regPatientList.other_name}}
+        </label>
+      </div>
+      <div class="col"> 
+        <label class="item item-input input-readonly">
+          <i class="ion-person placeholder-icon"></i>
+          {{editPatCtrl.regPatientList.identity_id}}
+        </label>
+      </div>
+    </div>
+    <div class="row responsive-md"> 
+      <div class="col"> 
+        <label class="item item-input input-readonly">
+          <i class="ion-calendar placeholder-icon"></i>
+          {{editPatCtrl.regPatientList.dob | limitTo:16 }}
+        </label>
+      </div>
+      <div class="col"> 
+        <label class="item item-input input-readonly">
+          <i class="ion-waterdrop placeholder-icon"></i>
+          {{editPatCtrl.regPatientList.blood_group}}
+        </label>
+      </div>
+      <div class="col"> 
+        <label class="item item-input input-readonly">
+          <i class="ion-female placeholder-icon"></i>
+          {{editPatCtrl.regPatientList.gender}}
+        </label>
+      </div>
+    </div>
+
+    <div class="row responsive-md"> 
+      <div class="col"> 
+        <label class="item item-input">
+          <i class="ion-android-call placeholder-icon"></i>
+          <input type="tel" placeholder="Contact No" ng-model="editPatCtrl.regPatientList.contact_no">
+        </label>
+      </div>
+      <div class="col"> 
+        <label class="item item-input">
+          <i class="ion-ios-email placeholder-icon"></i>
+          <input type="text" placeholder="Guardian Name" ng-model="editPatCtrl.regPatientList.guardian_name">
+        </label>
+      </div> 
+    </div>
+    <div class="row responsive-md"> 
+      <div class="col">
+        <label class="item item-input">
+          <i class="ion-location placeholder-icon"></i>
+          <input type="text" placeholder="Address" ng-model="editPatCtrl.regPatientList.address">
+        </label>
+      </div>
+    </div>
+
+    <div class="row responsive-md"> 
+        <div class="col"> 
+            <div class="divider-title" style="text-align: center;">Observations</div>
+       </div>
+    </div> 
+    <div class="row responsive-md"> 
+      <div class="col"> 
+        <label class="item item-input">
+          <i class="ion-thermometer placeholder-icon"></i>
+          <input type="text" placeholder="Blood Pressure" ng-model="editPatCtrl.admissionList.bp">
+        </label>
+      </div>
+      <div class="col"> 
+        <label class="item item-input">
+          <i class="ion-heart placeholder-icon"></i>
+          <input type="text" placeholder="Pulse" ng-model="editPatCtrl.admissionList.pulse">
+        </label>
+      </div> 
+    </div>
+
+
+    <div class="row responsive-md"> 
+      <div class="col">
+        <label class="item item-input">
+          <i class="ion-location placeholder-icon"></i>
+          <input type="text" placeholder="Signs" ng-model="editPatCtrl.regPatientList.signs">
+        </label>
+      </div>
+    </div>
+    <div class="row responsive-md"> 
+      <div class="col">
+        <label class="item item-input">
+          <i class="ion-location placeholder-icon"></i>
+          <input type="text" placeholder="Symptoms" ng-model="editPatCtrl.regPatientList.symptoms">
+        </label>
+      </div>
+    </div>
+    <div class="row responsive-md"> 
+      <div class="col">
+        <label class="item item-input">
+          <i class="ion-location placeholder-icon"></i>
+          <input type="text" placeholder="History" ng-model="editPatCtrl.regPatientList.history">
+        </label>
+      </div>
+    </div>
+    <div class="row responsive-md"> 
+      <div class="col">
+        <label class="item item-input">
+          <i class="ion-thumbsdown placeholder-icon"></i>
+          <input type="text" placeholder="Allergies" ng-model="editPatCtrl.regPatientList.allergies">
+        </label>
+      </div>
+    </div>
+
+
+    <div class="row responsive-md"> 
+        <div class="col"> 
+            <div class="divider-title" style="text-align: center;">Assign Bed</div>
+       </div>
+    </div> 
+    <div class="row responsive-md"> 
+        <div class="col">
+            <label class="item item-input item-select">
+            <i class="ion-ios-people placeholder-icon"></i>
+            <span class="input-label">Status</span>
+                <select ng-model="editPatCtrl.admissionList.status">
+                    <option ng-repeat="status in patientStatus" value="{{status.value}}">{{status.description}}</option>
+                </select>
+            </label>
+        </div>
+        <div class="col">
+            <label class="item item-input item-select">
+            <i class="ion-ios-people placeholder-icon"></i>
+            <span class="input-label">Department</span>
+                <select ng-model="editPatCtrl.selecteddepartment">
+                    <option ng-repeat="department in hospitalDepartments" value="{{department.value}}">{{department.description}}</option>
+                </select>
+            </label>
+        </div>
+    </div>  
+    <div class="row responsive-md">
+        <div class="col">
+            <label class="item item-input item-select">
+                <i class="ion-ribbon-b placeholder-icon"></i>
+                <span class="input-label">Ward</span>
+                <select ng-model="editPatCtrl.selectedWard" ng-init="editPatCtrl.selectedWard=editPatCtrl.wardList[0]" ng-options="ward.ward_no for ward in editPatCtrl.wardList"></select>
+                </label>
+        </div>
+        <div class="col">
+             <label class="item item-input item-select">
+                <i class="ion-ribbon-b placeholder-icon"></i>
+                <span class="input-label">Bed</span>
+                <select ng-model="editPatCtrl.selectedBed" ng-options="bed.bed_no for bed in editPatCtrl.selectedWard.bedDetails | filter: filterAvalibleBed"">
+                </select>
+            </label>
+        </div>
+     </div> 
+
+
+    <div class="row responsive-md"> 
+        <div class="col"> 
+              <div class="divider-title" style="text-align: center;">Assign Staff</div>
+       </div>
+    </div> 
+     <div class="row responsive-md"> 
+        <div class="col">
+            <label class="item item-input item-select">
+                <i class="ion-medkit placeholder-icon"></i>
+                <span class="input-label">Designation</span>
+                <select ng-model="editPatCtrl.selecteddesignation">
+                    <option ng-repeat="designation in staffDesignations" value="{{designation.value}}">{{designation.description}}</option>
+                </select>
+            </label>
+        </div>
+        <div class="col">
+            <label class="item item-input item-select">
+                <i class="ion-medkit placeholder-icon"></i>
+                <span class="input-label">Staff</span>
+                <select ng-model="editPatCtrl.selectedStaff" ng-options="staff.first_name for staff in editPatCtrl.staffList | filter: filterStaff"">
+                </select>
+            </label>
+        </div>
+    </div> 
+
+    <div class="padding center">
+            <button class="button button-block button-balanced" ng-click="editPatCtrl.saveAdmission()">Admit Patient</button>
+    </div>
+</div>
+</ion-content>
+</ion-view>

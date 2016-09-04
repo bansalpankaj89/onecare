@@ -1,0 +1,36 @@
+<ion-content class="padding">
+    <ion-refresher on-refresh="patTimeline.doRefresh()" pulling-icon="ion-load-d" spinner="ios-small"></ion-refresher>
+    <section id="cd-timeline" class="cd-container">
+        <div ng-repeat="activity in patTimeline.timelineCollection">
+            <div class="cd-timeline-block">
+                <div class="cd-timeline-picture text-center dark" ng-if="showPic" ng-click="patTimeline.changeTimeline()">
+                    <img ng-src="img/{{activity.profilePicture}}"/>
+                </div>
+                <div class="cd-timeline-icon text-center royal" ng-if="!showPic" ng-click="patTimeline.changeTimeline()">
+                    <i class="ion-image timelineIcon" ng-if="(activity.type=='picture')"></i>
+                    <i class="ion-ios-videocam timelineIcon" ng-if="activity.type=='video' "></i>
+                    <i class="ion-location timelineIcon" ng-if="activity.type=='location'"></i>
+                    <i class="ion-android-textsms timelineIcon" ng-if="activity.type=='text'"></i>
+                </div>
+                <div class="cd-timeline-content padding dark">
+                    <h5 class="marginTop5 cd-author">by {{activity.author}} on {{activity.date | date: "dd MMM yyyy HH:mm:ss"}}</h5>
+                    <medi-timeline-update-summary heading="PatientStatus" updates="activity.updates.patientStatus">                        
+                    </medi-timeline-update-summary>
+                    <medi-timeline-update-summary heading="Diagnosis" updates="activity.updates.diagnosis">                        
+                    </medi-timeline-update-summary>
+                    <medi-timeline-update-summary heading="Procedures" updates="activity.updates.procedures">                        
+                    </medi-timeline-update-summary>                    
+                    <medi-timeline-update-summary heading="Prescriptions" updates="activity.updates.prescriptions">                        
+                    </medi-timeline-update-summary>                                    
+                    <medi-timeline-update-summary heading="Observations" updates="activity.updates.observations">                        
+                    </medi-timeline-update-summary>                                  
+                    <medi-timeline-update-summary heading="Medical Examinations" updates="activity.updates.medicalExaminations">                        
+                    </medi-timeline-update-summary>
+                    <medi-timeline-update-summary heading="Updates" updates="activity.updates.updates">                        
+                    </medi-timeline-update-summary>
+                </div>
+            </div>
+        </div>
+    </section>
+</ion-content>
+

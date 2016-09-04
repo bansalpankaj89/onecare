@@ -1,0 +1,29 @@
+{
+    "jscodehints.detectedExclusions": [
+        "D:/Development/Projects/MediDocApp/MediDocApp/www/lib/pouchdb/extras/memory.js",
+        "D:/Development/Projects/MediDocApp/MediDocApp/www/lib/pouchdb/extras/promise.js",
+        "D:/Development/Projects/MediDocApp/MediDocApp/www/lib/pouchdb/extras/websql.js",
+        "D:/Development/Projects/MediDocApp/MediDocApp/www/lib/pouchdb/src/adapters/http/index.js",
+        "D:/Development/Projects/MediDocApp/MediDocApp/www/lib/pouchdb/src/adapters/idb/allDocs.js",
+        "D:/Development/Projects/MediDocApp/MediDocApp/www/lib/pouchdb/src/adapters/idb/blobSupport.js",
+        "D:/Development/Projects/MediDocApp/MediDocApp/www/lib/pouchdb/extras/fruitdown.js",
+        "D:/Development/Projects/MediDocApp/MediDocApp/www/lib/pouchdb/src/adapters/websql/valid-browser.js",
+        "D:/Development/Projects/MediDocApp/MediDocApp/www/lib/pouchdb/src/deps/ajax/ajaxCore.js",
+        "D:/Development/Projects/MediDocApp/MediDocApp/www/lib/pouchdb/src/deps/ajax/applyTypeToBuffer-browser.js",
+        "D:/Development/Projects/MediDocApp/MediDocApp/www/lib/pouchdb/src/deps/ajax/applyTypeToBuffer.js",
+        "D:/Development/Projects/MediDocApp/MediDocApp/www/app/service/ward.service.js",
+        "D:/Development/Projects/MediDocApp/MediDocApp/www/lib/pouchdb/src/adapters/websql/valid.js",
+        "D:/Development/Projects/MediDocApp/MediDocApp/www/lib/pouchdb/src/adapters/leveldb/transaction.js",
+        "D:/Development/Projects/MediDocApp/MediDocApp/www/lib/pouchdb/src/adapters/leveldb/readAsBlobOrBuffer-browser.js",
+        "D:/Development/Projects/MediDocApp/MediDocApp/www/lib/pouchdb/src/adapters/leveldb/readAsBlobOrBuffer.js",
+        "D:/Development/Projects/MediDocApp/MediDocApp/www/app/home/patient/view/patient.controller.js",
+        "D:/Development/Projects/MediDocApp/MediDocApp/www/lib/pouchdb/src/adapters/websql/bulkDocs.js",
+        "D:/Development/Projects/MediDocApp/MediDocApp/www/lib/pouchdb/src/adapters/websql/constants.js",
+        "D:/Development/Projects/MediDocApp/MediDocApp/www/lib/pouchdb/src/adapters/websql/createOpenDBFunction-browser.js",
+        "D:/Development/Projects/MediDocApp/MediDocApp/www/lib/pouchdb/src/adapters/websql/createOpenDBFunction.js",
+        "D:/Development/Projects/MediDocApp/MediDocApp/www/lib/pouchdb/src/adapters/websql/index.js",
+        "D:/Development/Projects/MediDocApp/MediDocApp/www/lib/pouchdb/src/deps/ajax/createBlobOrBufferFromParts-browser.js",
+        "D:/Development/Projects/MediDocApp/MediDocApp/www/lib/pouchdb/src/deps/ajax/createMultipartPart-browser.js",
+        "D:/Development/Projects/MediDocApp/MediDocApp/www/lib/pouchdb/src/deps/ajax/createMultipartPart.js"
+    ]
+}

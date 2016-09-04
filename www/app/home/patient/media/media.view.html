@@ -1,0 +1,10 @@
+<ion-content class="padding">
+    <ion-refresher on-refresh="patMedia.doRefresh()" pulling-icon="ion-load-d" spinner="ios-small"></ion-refresher>
+  
+  <ion-gallery ion-gallery-items="patMedia.mediaCollections"></ion-gallery>
+<!--
+  <input name="{{file.name}}" type="file" medi-file-upload file="file" uploaded="fileUploaded(file)"/>
+  <a class="button button-primary uploader" ng-click="upload()">Upload</a>
+  <ion-spinner icon="lines" ng-show="uploading"></ion-spinner>
+-->
+</ion-content>

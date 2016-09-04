@@ -1,0 +1,10 @@
+(function() {
+    angular.module('mediDocApp.service')
+    .factory('serviceName', serviceName);
+    serviceName.$inject = ['$q', '$firebaseArray']
+    function serviceName($q) {    
+        return {
+        
+        };
+    }
+})();

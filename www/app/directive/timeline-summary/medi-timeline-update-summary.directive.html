@@ -1,0 +1,10 @@
+<div class="timelineText" ng-if="updates">
+    <h4>{{heading}} :</h4>
+    <ul>
+        <li ng-repeat="update in updates">
+            {{update.item.description}} 
+            <span style="color:green" ng-if="update.isAdd || update.isGiven">{{update.isAdd? "Added":"Given"}}</span>     
+            <span style="color:red" ng-if="!update.isAdd && !update.isGiven">{{update.isAdd? "Removed":"Missed"}}</span>
+        </li>
+    </ul>
+</div>

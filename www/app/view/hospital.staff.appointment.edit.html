@@ -1,0 +1,17 @@
+<div class="appointment-edit">
+    <div class="date-selection">
+        <onezone-datepicker datepicker-object="newAppointment">
+            <button class="button button-block button-outline button-positive show-onezone-datepicker">
+                {{newAppointment.date | date:'dd MMMM yyyy'}} 
+            </button>
+        </onezone-datepicker>
+    </div>
+    <div class="appointment-type">
+        <medi-dropdown-list item-collection="appointmentTypes" 
+            selected-items="selectedAppointment" item-name="Appointment Type" multi-select="false">                    
+        </medi-dropdown-list>
+    </div>
+    <div class="notes">
+        <textarea class="notes" ng-model="$parent.appointmentNotes"></textarea>
+    </div>
+</div>

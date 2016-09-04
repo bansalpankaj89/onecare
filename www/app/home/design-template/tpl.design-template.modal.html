@@ -1,0 +1,24 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-positive app-color">
+        <h1 class="title txt-color">{{action}} Template</h1> 
+        <div class="buttons">
+            <button ng-hide="isAdd" ng-click="desiTempCtrl.deleteTemplate()" class="button button-icon icon ion-trash-a txt-color"></button>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <div class="list list-inset">
+            <label class="item item-input">
+                <input type="text" placeholder="Name" ng-model="template.name">
+            </label>
+            <label class="item item-input">
+                <input type="text" placeholder="Description" ng-model="template.description">
+            </label>
+        </div>
+        <div class="padding">
+            <div class="button-bar">
+                <a class="button app-color txt-color" ng-click="desiTempCtrl.closeAddTemplateModal()">Cancel</a>
+                <a class="button button-positive  app-color txt-color" ng-click="desiTempCtrl.saveTemplate()">Save</a>
+            </div>
+        </div>
+    </ion-content>
+</ion-modal-view>

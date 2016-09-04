@@ -1,0 +1,45 @@
+<style type="text/css">
+.header .col {
+  background-color:lightgrey;
+}
+
+.col {
+  border: solid 1px grey;
+  border-bottom-style: none;
+  border-right-style: none;
+}
+
+.col:last-child {
+  border-right: solid 1px grey;
+}
+
+.row:last-child .col {
+  border-bottom: solid 1px grey;
+}
+
+</style>
+<ion-view view-title="Manage Staff" hide-back-button="false">
+<ion-nav-buttons side="right">
+    <button class="button button-icon ion-android-list" ui-sref="home.stafflist"></button>
+</ion-nav-buttons> 
+<ion-content>
+ <div class="row header">
+          <div class="col">ID</div>
+          <div class="col">Name</div>
+          <div class="col">Contact</div>
+          <div class="col">Designation</div>
+          <div class="col">Department</div>
+        </div>
+        <div class="row" ng-repeat="data in staffListCtrl.staffList" ng-click="staffListCtrl.viewDetails(data)">
+          <div class="col">{{data.identity_id}}</div>
+          <div class="col">{{data.first_name}} {{data.last_name}}</div>
+          <div class="col">{{data.contact_no}}</div>
+          <div class="col">{{data.designation}}</div>
+          <div class="col">{{data.department}}</div>
+        </div>
+
+</ion-content>
+</ion-view>
+
+      
+     

@@ -1,0 +1,73 @@
+<style type="text/css">
+.notes {
+    padding-bottom:50px;
+    list-style-type:none;
+}
+
+.notes li {
+    display:block;
+    clear:both;
+    /*max-width:90%;*/
+    border-radius:.50rem;
+    background:#158ffe;
+    color:#383641;
+    padding: 10px;
+    padding-bottom: 50px;
+    margin:0;
+    font-size:1rem;
+    margin-bottom: 20px !important;
+}
+
+
+.notes-date{
+   padding: 10px;
+   float:right;
+}
+
+
+.notes img {
+    display:block;
+    max-width:65%;
+    border-radius:.75rem;
+}
+
+.no-border{
+    border-color: white !important;
+    border-width: 0px !important;
+}
+</style>
+<ion-view view-title="{{title}} ">
+    <ion-nav-buttons side="right">
+        <button class="button button-icon icon ion-ios-minus-outline"
+              ng-click="noteCtrl.showDelete = !noteCtrl.showDelete; noteCtrl.showReorder = false"></button>
+    </ion-nav-buttons>
+<!--   <ion-nav-buttons side="left">
+       <div class="buttons">
+            <button class="button button-icon icon ion-ios-minus-outline"
+              ng-click="noteCtrl.showDelete = !noteCtrl.showDelete; noteCtrl.showReorder = false"></button>
+       </div>
+  </ion-nav-buttons> -->
+   <ion-content class="padding" start-y="120">
+     <ion-list show-delete="noteCtrl.showDelete">
+        <ol class="notes">
+        <ion-item class="no-border" ng-repeat="note in noteCtrl.notes" item="note" class="item-remove-animate">
+          <li>
+           <span>{{note.remark}}</span><br>
+           <span class="notes-date">
+            <i class="icon ion-clock"></i>
+           {{note.remark_date | date:"MM/dd/yyyy 'at' h:mma"}}</span>
+          </li>
+          <ion-delete-button class="ion-minus-circled" ng-click="noteCtrl.onItemDelete(note)"></ion-delete-button>
+          <ion-option-button class="button-assertive" ng-click="noteCtrl.edit(note)">
+          <div><ng-md-icon icon="mode_edit" size="30"></ng-md-icon><br>Edit</div></ion-option-button>
+          <ion-option-button class="button-calm" ng-click="noteCtrl.share(note)">
+          <div><ng-md-icon icon="share" size="30"></ng-md-icon><br>Share</div></ion-option-button>
+          </ion-item>
+        </ol>
+      </ion-list>  
+  </ion-content>
+  <ion-footer-bar class="bar-frosted" style="height: 15%;">
+    <textarea style="width: 90%;" ng-model='noteCtrl.newNote.remark' placeholder='Add notes...' ></textarea>
+    <button class="button button-positive icon-left ion-plus" ng-click="noteCtrl.addNewNote()">Add Note</button>
+  </ion-footer-bar>
+</ion-view>

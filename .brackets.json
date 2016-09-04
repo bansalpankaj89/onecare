@@ -1,0 +1,16 @@
+{
+    "jscodehints.detectedExclusions": [
+        "D:/Development/Projects/MediDocApp/MediDocApp/www/lib/pouchdb/src/adapters/leveldb/index.js",
+        "D:/Development/Projects/MediDocApp/MediDocApp/www/lib/pouchdb/src/adapters/leveldb/prepareAttachmentForStorage-browser.js",
+        "D:/Development/Projects/MediDocApp/MediDocApp/www/lib/pouchdb/src/adapters/leveldb/prepareAttachmentForStorage.js",
+        "D:/Development/Projects/MediDocApp/MediDocApp/www/lib/pouchdb/src/adapters/leveldb/readAsBlobOrBuffer-browser.js",
+        "D:/Development/Projects/MediDocApp/MediDocApp/www/lib/pouchdb/src/adapters/leveldb/readAsBlobOrBuffer.js",
+        "D:/Development/Projects/MediDocApp/MediDocApp/www/lib/pouchdb/src/evalView.js",
+        "D:/Development/Projects/MediDocApp/MediDocApp/www/lib/pouchdb/src/changes.js",
+        "D:/Development/Projects/MediDocApp/MediDocApp/www/lib/pouchdb/src/changesHandler.js",
+        "D:/Development/Projects/MediDocApp/MediDocApp/www/lib/pouchdb/src/adapters-browser.js",
+        "D:/Development/Projects/MediDocApp/MediDocApp/www/lib/pouchdb/extras/localstorage.js",
+        "D:/Development/Projects/MediDocApp/MediDocApp/www/lib/pouchdb/extras/memory.js",
+        "D:/Development/Projects/MediDocApp/MediDocApp/www/lib/pouchdb/src/adapters/websql/bulkDocs.js"
+    ]
+}

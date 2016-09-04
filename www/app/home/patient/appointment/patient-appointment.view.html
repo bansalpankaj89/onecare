@@ -1,0 +1,82 @@
+<ion-view view-title="{{title}}" hide-back-button="false">
+    <ion-nav-buttons side="right">
+        <button class="button button-icon ion-plus-round" ng-click="appoCtrl.newAppointment()"></button>
+    </ion-nav-buttons> 
+    <ion-content>        
+        <ion-refresher on-refresh="appoCtrl.doReferesh()" pulling-icon="ion-load-d" spinner="ios-small"></ion-refresher>
+
+        <div layout="column" class="relative" layout-fill role="main">
+           <div class="row responsive-md">
+               <div class="col headder">Appointments</div>
+           </div>
+            <div class="row responsive-md">
+                <div class="col col-40">
+                    <div class="item item-toggle">
+                        Show Calendar
+                        <label class="toggle toggle-balanced">  
+                           <input type="checkbox" ng-model="showCalendar">
+                           <div class="track">
+                             <div class="handle"></div>
+                           </div>
+                        </label>               
+                    </div>
+                    <medi-calendar class="item" ng-show="showCalendar" appointment-obj="appointment" on-date-selected="appointmentDateSelected(selectedDate)"></medi-calendar>
+                    <div class="list" ng-repeat="appointment in appoCtrl.appointments| filter: appointmentFilter">
+                        <div ng-class="{'taskList-statusbar': selectedItem == appointment }" class="item item-text-wrap"
+                             ng-click="appoCtrl.viewTemplate(appointment)">
+                                <h2>{{appointment.description}} </h2>
+                                <p>{{appointment.scheduleTime}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-60">
+                    <label class="item item-input item-select">
+                        <span class="input-label">Type</span>
+                        <select ng-model="appoCtrl.appointment.type" ng-disabled="isView"  ng-change="appoCtrl.appointmentTypeChanged()">  
+                            <option value="{{type.value}}" 
+                                    ng-repeat="type in appoCtrl.appointmentTypes">
+                                {{type.description}}
+                            </option>
+                        </select>
+                    </label>
+                    <label class="item item-input item-select">
+                        <span class="input-label">Status</span>
+                        
+                        <select ng-model="appoCtrl.appointment.status" ng-disabled="isView">  
+                            <option value="{{status.value}}" ng-repeat="status in appoCtrl.appointmentStatus">
+                                {{status.description}}
+                            </option>
+                        </select>
+                    </label>
+                    <label class="item item-input">
+                       <span class="input-label">Description</span>
+                        <textarea type="text" col="20" row="5" ng-model="appoCtrl.appointment.description" ng-disabled="isView"></textarea>
+                    </label>
+                    <label class="item item-input" medi-datetime-picker input-obj="scheduleTime" mode="isView">
+                        <i class="ion-ios-clock-outline placeholder-icon"></i>
+				        <span class="input-label">Scheduled Time</span>
+				        <span class="input-text">{{appoCtrl.appointment.scheduleTime}}</span>                        
+                    </label>       
+                    <label class="item item-input">
+                       <span class="input-label">Remaks</span>
+                        <textarea type="text" col="20" row="5" ng-model="appoCtrl.appointment.remarks" ng-disabled="isView"></textarea>
+                    </label>             
+                    <label class="item item-input">
+                       <span class="input-label">Created</span>
+                            <input type="text" ng-model="appoCtrl.appointment.createdTime" ng-disabled="isView">
+                    </label>        
+                    <label class="item item-input">
+                       <span class="input-label">Last Updated on </span>
+                            <input type="text" ng-model="appoCtrl.appointment.lastUpdated" ng-disabled="isView">
+                    </label>                                      
+                    <label class="item item-input">
+                      <div class="button-bar">
+                       <button class="button" ng-click="appoCtrl.resetAppointment()">Cancel</button>
+                       <button class="button button-positive" ng-click="appoCtrl.saveAppointment()" ng-disabled="isView">Save</button>
+                       </div>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+    </ion-view>

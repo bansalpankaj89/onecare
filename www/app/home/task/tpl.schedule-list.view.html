@@ -1,0 +1,46 @@
+<style type="text/css">
+    .medi_calendar_modal {
+        position: fixed;
+        width: 38%;
+    }
+    .row {
+        background: white;
+    }
+    .scheduling-rooms {
+            bottom: 65px;
+    position: absolute;
+    width: 30%;
+    }
+    .selected-time-slot {
+        background: rgba(56, 126, 245, 0.32);
+    }
+</style>
+<div class="row">
+    <div class="col-40">
+        <medi-calendar appointment-obj="scheduleData.tasks" on-date-selected="filterAppointmentTask(selectedDate)"></medi-calendar>    
+        <div class="row scheduling-rooms ">
+            <button class="button button-calm col-30">Room 1</button>
+            <button class="button button-calm  col-30">Room 2</button>
+            <button class="button button-calm  col-30">Room 3</button>
+
+        </div>      
+    </div>
+    <div class="col-10">
+        <div class="list"  style="max-height: 900px; overflow-y: scroll; ">
+            <div class="item"  ng-repeat="time in ['06:00', '07:00', '08:00', '09:00', '10:00', '11:00', 
+            '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00',
+            '19:00', '20:00']" ng-click="loadFilterTime(time)" 
+               ng-class="{'taskList-statusbar': allocatedTimes.indexOf(time) > -1, 'selected-time-slot': activeElement == time}">
+                {{time}}
+            </div>
+        </div>
+    </div>
+    <div class="col-50">
+        <div class="list card">
+            <div class="item item-text-wrap" ng-repeat="filterItem in appointmentFilterTasks | orderBy:'appointment_time'">
+                {{filterItem.description}}<br/>
+                {{filterItem.appointment_time}}
+            </div>
+        </div>
+    </div>
+</div>

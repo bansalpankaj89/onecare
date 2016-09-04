@@ -1,0 +1,7 @@
+(function() {
+    angular.module('nameSpace').controller('controllerName', ['$scope', controllerName]);
+    
+    function controllerName($scope) {
+        //code goes here   
+    };
+})();

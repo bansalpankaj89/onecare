@@ -1,0 +1,104 @@
+<style type="text/css">
+    .no-pad {
+        padding: 0px;
+    }
+    
+    .item.item-accordion {
+        padding: 5px;
+    }
+    
+/*    http://www.epson.com.sg/epson_singapore/printers_and_all_in_ones/pos/product.page?product_name=Epson_TM-U220#*/
+    span.input-text {
+           margin-right: 65px;
+    width: 100%;
+    }
+    
+</style>
+ <ion-view view-title="{{title}}" hide-back-button="false">
+  <ion-content class="padding" start-y="120">
+    <div class="row responsive-md"> 
+        <div class="col"> 
+        <div class="item item-divider" style="text-align: center;">Patient Information</div>
+       </div>
+    </div> 
+   <div class="row">
+        <div class="col col-50">
+            <!-- <h5>Patient Details</h5> -->
+            <label class="item item-input">
+                <span class="input-label">Registration ID</span>
+                <span class="input-text">: {{transfertCtrl.patientInfo.registration_id}}</span> 
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Date of Birth</span>
+                <span class="input-text">: 01-11-1985</span> 
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Diagnosis</span>
+                <span class="input-text" style="white-space: normal">: {{transfertCtrl.patientInfo.diagnosis}}</span> 
+            </label>
+        </div>
+        <div class="col col-50">
+            <label class="item item-input">
+                <span class="input-label">Admission ID</span>
+                <span class="input-text">: {{transfertCtrl.patientInfo.admission_id}}</span> 
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Admitted Date</span>
+                <span class="input-text">: {{transfertCtrl.patientInfo.admission_date}}</span> 
+            </label>
+            <div class="row no-pad">
+                <div class="col col-50 no-pad">
+                    <label class="item item-input">
+                        <span class="input-label">Ward No</span>
+                        <span class="input-text">: {{transfertCtrl.patientInfo.ward_no}}</span> 
+                    </label>
+                </div>
+                <div class="col col-50 no-pad">
+                    <label class="item item-input">
+                        <span class="input-label">Bed No</span>
+                        <span class="input-text">: {{transfertCtrl.patientInfo.bed_no}}</span> 
+                    </label>
+                </div>
+            </div>
+        </div>
+   </div>
+    <div class="row responsive-md"> 
+        <div class="col"> 
+        <div class="item item-divider" style="text-align: center;">Transfer Information</div>
+       </div>
+    </div> 
+    <div class="row responsive-md"> 
+        <div class="col">
+            <label class="item item-input item-select">
+            <span class="input-label">Department</span>
+                <select ng-model="transfertCtrl.selecteddepartment">
+                    <option ng-repeat="department in hospitalDepartments" value="{{department.value}}">{{department.description}}</option>
+                </select>
+            </label>
+        </div>
+        <div class="col">
+            <label class="item item-input item-select">
+                <span class="input-label">Staff</span>
+                <select ng-model="transfertCtrl.selectedStaff" ng-options="staff.full_name for staff in transfertCtrl.staffList | filter: filterStaff">
+                </select>
+            </label>
+        </div>
+    </div>
+    <div class="row responsive-md"> 
+        <div class="col">
+          <label class="item item-input">
+            <span class="input-label">Transfer Remarks</span>
+              <span class="input-text"><textarea rows="4" cols="45" ng-model="transfertCtrl.remarks"></textarea></span>
+          </label>
+        </div>
+    </div>        
+   <div class="row">
+       <div class="col col-50">
+           <button class="button button-block button-assertive">Cancel</button>
+       </div>
+       <div class="col col-50">           
+           <button class="button button-block button-balanced" ng-click="transfertCtrl.consultPatient()">Transfer</button>
+       </div>
+   </div>
+  </ion-content>  
+</ion-view>

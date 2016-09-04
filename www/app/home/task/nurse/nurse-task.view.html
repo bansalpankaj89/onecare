@@ -1,0 +1,96 @@
+<ion-view view-title="Nurse Tasks" hide-back-button="false">
+<ion-content>
+  <ion-refresher on-refresh="taskCtrl.loadNurseTasks()" pulling-icon="ion-load-d" spinner="ios-small"></ion-refresher>
+<div class="row">
+	<div class="col col-40" style="padding:0px !important;">	    
+        <div class="list card" style="margin-top: 0px !important;">     
+            <div class="item item-toggle">
+               Show Calendar
+                <label class="toggle toggle-balanced">  
+                   <input type="checkbox" ng-model="showCalendar">
+                   <div class="track">
+                     <div class="handle"></div>
+                   </div>
+                 </label>               
+            </div>   
+            <medi-calendar appointment-obj="task" on-date-selected="taskCtrl.filterMainTask(selectedDate)" ng-show="showCalendar"></medi-calendar>          
+            <div class="item"><barcode-scanner on-scan="taskCtrl.filterByAdmission(barcodeData)"><span > Patient QR Scan </span></barcode-scanner></div>       
+        </div>
+        <div class="list card">
+            <div  ng-repeat="task in taskCtrl.mainFilteredTask| filter: taskFilter">
+                <div ng-class="{'taskList-statusbar': selectedItem == task }" class="item item-text-wrap" ng-click="taskCtrl.processTask(task)">
+                        <h2>{{task.description}} </h2>
+                        <p>{{task.scheduleTime}}</p>
+                </div>
+<!--
+                <div class="item item-divider  item-text-wrap button-bar">
+                    <button class="button  button-small button-positive" ng-click="taskCtrl.processTask(task, true)"
+                       ng-disabled="task.status == 'completed'">
+                        PROCESS
+                    </button>
+                    <button class="button  button-small" ng-click="taskCtrl.processTask(task, false)">
+                        VIEW 
+                    </button>
+                </div>
+-->
+            </div> 
+        </div>
+    </div>
+	<div class="col col-60">	
+		<label class="item item-input">
+            <span class="input-label">Admission ID  </span>
+            <span class="input-text">{{taskCtrl.selectedTask.admission_id}}</span> 
+        </label>	
+		<label class="item item-input">
+            <span class="input-label">Patient Name </span>
+            <span class="input-text">{{taskCtrl.selectedTask.full_name}}</span> 
+        </label>	
+        <div class="row">
+            <div class="col col-50">
+                <label class="item item-input">
+                    <span class="input-label">Ward No </span>
+                    <span class="input-text">{{taskCtrl.selectedTask.ward_no}}</span> 
+                </label>
+            </div>
+            <div class="col col-50">
+                <label class="item item-input">
+                    <span class="input-label">Bed No </span>
+                    <span class="input-text">{{taskCtrl.selectedTask.bed_no}}</span> 
+                </label>
+            </div>
+        </div>       
+		<label class="item item-input">
+            <span class="input-label">Doctor </span>
+            <span class="input-text">Dr. {{taskCtrl.selectedTask.assigner}}</span> 
+        </label>   
+		<label class="item item-input">
+            <span class="input-label">Examination </span>
+            <span class="input-text">{{taskCtrl.selectedTask.examination}}</span> 
+        </label>   
+		<label class="item item-input">
+            <span class="input-label">Prescribed Date </span>
+            <span class="input-text">{{taskCtrl.selectedTask.prescribed_date}}</span> 
+        </label>   
+		<label class="item item-input" ng-if="taskCtrl.selectedTask.task.type=='appointment'">
+            <span class="input-label">Appointment Date </span> 
+            <span class="input-text">{{taskCtrl.selectedTask.appointment_date}}</span> 
+        </label> 
+		<label class="item item-input" ng-if="taskCtrl.selectedTask.task.type=='medication'">
+            <span class="input-label">Last Medication on </span>
+            <span class="input-text">{{taskCtrl.selectedTask.last_medication}}</span> 
+        </label>
+        <label class="item item-input" ng-show="isEditable">
+            <button class="button button-full" ng-click="taskCtrl.executeTask()">Cancel</button>            
+            <button class="button  button-full button-positive" ng-click="taskCtrl.executeTask()">
+                        {{taskCtrl.processingItemText}}
+            </button>
+            <button class="button  button-full button-energized" 
+                ng-if="taskCtrl.selectedTask.task.type=='medication'" 
+                ng-click="taskCtrl.stopMedication()">
+                COMPLETE
+            </button>
+        </label>
+	</div>
+</div>
+</ion-content>
+</ion-view>

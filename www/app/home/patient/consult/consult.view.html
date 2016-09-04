@@ -1,0 +1,154 @@
+<style type="text/css">
+    .no-pad {
+        padding: 0px;
+    }
+    
+    .item.item-accordion {
+        padding: 5px;
+    }
+    
+/*    http://www.epson.com.sg/epson_singapore/printers_and_all_in_ones/pos/product.page?product_name=Epson_TM-U220#*/
+    span.input-text {
+           margin-right: 65px;
+    width: 100%;
+    }
+    
+</style>
+ <ion-view view-title="{{title}}" hide-back-button="false">
+  <ion-content class="padding" start-y="120">
+    <div class="row responsive-md"> 
+        <div class="col"> 
+        <div class="item item-divider" style="text-align: center;">Patient Information</div>
+       </div>
+    </div> 
+   <div class="row">
+        <div class="col col-50">
+            <!-- <h5>Patient Details</h5> -->
+            <label class="item item-input">
+                <span class="input-label">Registration ID</span>
+                <span class="input-text">: {{consultCtrl.patientInfo.registration_id}}</span> 
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Date of Birth</span>
+                <span class="input-text">: 01-11-1985</span> 
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Diagnosis</span>
+                <span class="input-text" style="white-space: normal">: {{consultCtrl.patientInfo.diagnosis}}</span> 
+            </label>
+        </div>
+        <div class="col col-50">
+            <label class="item item-input">
+                <span class="input-label">Admission ID</span>
+                <span class="input-text">: {{consultCtrl.patientInfo.admission_id}}</span> 
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Admitted Date</span>
+                <span class="input-text">: {{consultCtrl.patientInfo.admission_date}}</span> 
+            </label>
+            <div class="row no-pad">
+                <div class="col col-50 no-pad">
+                    <label class="item item-input">
+                        <span class="input-label">Ward No</span>
+                        <span class="input-text">: {{consultCtrl.patientInfo.ward_no}}</span> 
+                    </label>
+                </div>
+                <div class="col col-50 no-pad">
+                    <label class="item item-input">
+                        <span class="input-label">Bed No</span>
+                        <span class="input-text">: {{consultCtrl.patientInfo.bed_no}}</span> 
+                    </label>
+                </div>
+            </div>
+        </div>
+   </div>
+    <div class="row responsive-md"> 
+        <div class="col"> 
+        <div class="item item-divider" style="text-align: center;">Consultation Information</div>
+       </div>
+    </div> 
+    <div class="row responsive-md"> 
+        <div class="col">
+            <label class="item item-input item-select">
+            <span class="input-label">Department</span>
+                <select ng-model="consultCtrl.selecteddepartment">
+                    <option ng-repeat="department in hospitalDepartments" value="{{department.value}}">{{department.description}}</option>
+                </select>
+            </label>
+        </div>
+        <div class="col">
+            <label class="item item-input item-select">
+                <span class="input-label">Staff</span>
+                <select ng-model="consultCtrl.selectedStaff" ng-options="staff.full_name for staff in consultCtrl.staffList | filter: filterStaff">
+                </select>
+            </label>
+        </div>
+    </div>
+    <div class="row responsive-md"> 
+        <div class="col">
+          <label class="item item-input">
+            <span class="input-label">Consultation Remarks</span>
+              <span class="input-text"><textarea rows="4" cols="45" ng-model="consultCtrl.remarks"></textarea></span>
+          </label>
+        </div>
+    </div>        
+ <!--   <div class="row">
+       <div class="col col-50">                      
+            <label class="item item-input">
+                <span class="input-label">Condition on <br/>Discharge</span>
+                <span class="input-text">
+                    <textarea rows="4" cols="30" 
+                        placeholder="Discharge Condition"
+                        ng-model="consultCtrl.patientInfo.condition"
+                        ></textarea>
+                    </span>
+            </label>  
+            <label class="item item-input">
+                <span class="input-label">Discharge<br/> Instructions</span>
+                <span class="input-text">
+                    <textarea rows="4" cols="30"                         
+                        ng-model="consultCtrl.patientInfo.instruction"                            
+                        placeholder="Discharge Instructions">
+                        </textarea></span>
+            </label>                   
+            <medi-dropdown item-name="Discharge Status" >
+                <medi-list-selection ng-if="dischargeStatusCollection" 
+                    item-collection="dischargeStatusCollection" multi-select="false"
+                    selected-items="consultCtrl.patientInfo.dischargeStatus" 
+                    on-selection-changed="dischargeStatusChange(changedItem, changedState)">                    
+                </medi-list-selection> 
+            </medi-dropdown>
+       </div>
+       <div class="col col-50">
+           <label class="item item-input">
+                <span class="input-label">Discharge 
+                    <br/>Medications                     
+                    <button style="margin-top: -20px; margin-left: 5px;" class="button button-small" ng-click="prescripeMedicine()">+</button>
+                </span>
+                <span class="input-text">
+                    <medi-list ng-repeat="prescription in consultCtrl.patientInfo.prescriptions" text-overflow="normal">
+                            {{prescription.description }}
+                    </medi-list>
+                </span>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Follow up <br/>Appointments
+                <button class="button button-small" style="margin-top: -20px; margin-left: 5px;" ng-click="scheduleAppointment()">+</button></span>
+                <span class="input-text">
+                    <medi-list ng-repeat="appointment in consultCtrl.patientInfo.dischargeAppointments" text-overflow="normal">
+                            {{appointment.appointment_date}}
+                    </medi-list>
+                </span>
+            </label>
+       </div>
+   </div> -->
+   <div class="row">
+       <div class="col col-50">
+           <button class="button button-block button-assertive">Cancel</button>
+       </div>
+       <div class="col col-50">           
+           <button class="button button-block button-balanced" ng-click="consultCtrl.consultPatient()">Consult</button>
+       </div>
+   </div>
+  </ion-content>  
+</ion-view>

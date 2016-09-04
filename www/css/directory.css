@@ -1,0 +1,32 @@
+.directory-picture {
+    position: absolute;
+    margin-top: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border-color: #0e61b4;
+    border-style: solid;
+    border-width: 2px;
+    background: white;
+}
+
+.button.button-icon.input-button {
+    position: absolute;
+    right: 0;
+    top: 5px;
+    color: #bbb;
+}
+.directory-list .directory-item.item {
+    left: 0;
+    right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.directory-text{
+  margin-left: 60px;
+}
+
+.directory-btn{
+  float: right;
+}

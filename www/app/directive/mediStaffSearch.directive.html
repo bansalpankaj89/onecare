@@ -1,0 +1,12 @@
+<ul class="list search-text list-search-text">
+    <li class="item">
+            <input type="search" placeholder="Search" ng-model="searchFilter" ng-change="scrollTop()">
+    </li>
+</ul>
+<ion-scroll direction="y" style="height: 200px">
+    <ul class="list">
+        <medi-list ng-repeat="item in itemCollection |  filter:searchFilter" item-selected="isSelected(item)" on-select="itemSelected(item)">
+            {{item.description}}
+        </medi-list>
+    </ul>   
+</ion-scroll>

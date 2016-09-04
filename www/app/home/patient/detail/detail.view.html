@@ -1,0 +1,144 @@
+<style type="text/css">
+ 
+</style>
+<ion-view view-title="{{patientFullName}}" hide-back-button="false">
+<!-- <ion-nav-buttons side="right">
+    <button class="button button-icon ion-ios-personadd" ui-sref="home.patient.editPatient"></button>
+</ion-nav-buttons>  -->
+
+ <ion-nav-buttons side="right">
+        <button class="button button-icon icon ion-calendar" ng-click="" ng-show="showEdit"></button>
+ </ion-nav-buttons> 
+  <ion-content class="padding">  
+  <ion-refresher on-refresh="updatePatientInfo()" pulling-icon="ion-load-d" spinner="ios-small"></ion-refresher>
+       <div class="row">
+        <toaster-container></toaster-container>
+        <div class="col col-60  patient-detail-view">            
+            <ion-list>
+                <medi-dropdown item-name="Patient Status">           
+                    <medi-list-selection ng-if="patientStatus" item-collection="patientStatus" 
+                       selected-items="patient.patientStatus" multi-select="false" required="true"
+                       on-selection-changed="patientStatusChange(changedItem, changedState)" >                   
+                    </medi-list-selection>           
+                </medi-dropdown>
+                <medi-dropdown item-name="Diagnosis">
+                    <medi-list-selection ng-if="diagnosisCollection" item-collection="diagnosisCollection" 
+                        selected-items="patient.diagnosis" multi-select="true"
+                        on-selection-changed="diagnosisStatusChange(changedItem, changedState)">                    
+                    </medi-list-selection>
+                </medi-dropdown>
+                <medi-dropdown item-name="Procedure">
+                    <medi-list-selection ng-if="procedureCollection" item-collection="procedureCollection" 
+                        selected-items="patient.procedures" multi-select="true" 
+                        on-selection-changed="procedureStatusChange(changedItem, changedState)">                    
+                    </medi-list-selection> 
+                </medi-dropdown>
+                <ion-item class="item-button-command">
+                    <div class="assigned-doctors">
+                        <button class="button round-button" ng-click="openStaffAssignment()"><i class="icon ion-person-add"></i></button>
+                        <div class="item-label" ng-hide="patient.selectedStaffs.length">Assignend Staffs</div>
+                        <ul class="list">
+                            <li class="item vertical-list-item" 
+                               ng-repeat="item in patient.selectedStaffs"
+                               ng-click="openStaffInfo(item)">
+                                <medi-avatar avatar="item.pic"></medi-avatar>
+                            </li>
+                        </ul>
+                    </div>
+                </ion-item>            
+                <ion-item class="item-stable" style="padding:0px;">
+                    <div class="medication-prescription" style="padding-left: 16px;padding-right: 16px;">
+                        <button class="button round-button" ng-click="prescripeMedicine()"><i class="icon ion-toggle-filled"></i></button>
+                        <div class="item-label" ng-click="prescripeMedicine()">Medication &amp Prescription</div>
+                        <medi-toggle-button toggle-value="toggleMedication"></medi-toggle-button>
+                    </div>
+                    <div class="medication-prescriptions" ng-show="toggleMedication">
+                    <ul class="list">
+                        <medi-list ng-repeat="prescription in patient.prescriptions">
+                            {{prescription.description}}
+                        </medi-list>
+                    </ul>
+                    </div>
+                </ion-item>    
+                
+                
+                <ion-item class="item-stable" style="padding:0px;">
+                    <div class="medication-test" style="padding-left: 16px;padding-right: 16px;">
+                        <button class="button round-button" ng-click="assignMedicalExamination()"><i class="icon ion-erlenmeyer-flask"></i></button>
+                        <div class="item-label" ng-click="assignMedicalExamination()">Medical Examinations</div>
+                        <medi-toggle-button toggle-value="toggleExamination"></medi-toggle-button>
+                    </div>
+                    <div class="medication-test" ng-show="toggleExamination">
+                        <ul class="list">
+                            <medi-list ng-repeat="examination in patient.medicalExaminations">
+                                    {{examination.description}}
+                            </medi-list>
+                        </ul>
+                    </div>            
+                </ion-item>
+                <ion-item class="item-button-command">
+                    <div class="row">
+                        <div class="detail-button"><button class="button round-button" ng-click="routeObservations()"><i class="icon ion-eye"></i></button><span class="detail-button-text">Observation</span></div>
+                        <div class="detail-button"><button class="button round-button" ng-click="routeNotes()"><i class="icon ion-clipboard"></i></button><span class="detail-button-text">Note</span></div>
+                        <div class="detail-button"><button class="button round-button" ng-click="routeAppointment()"><i class="icon ion-calendar"></i></button><span class="detail-button-text">Appointment</span></div>
+                         <div class="detail-button"><button class="button round-button" ng-click="routePatient()"><i class="icon ion-calendar"></i></button><span class="detail-button-text">Edit Patient</span></div>
+                    </div>
+                </ion-item>            
+        </ion-list>
+        </div>
+        <div class="col col-40 col-offset-60 hidden-sm">
+            <div class="list" >
+              <label class="item item-input item-floating-label">
+                <h3>Full Name</h3>
+                <h2>{{patDetail.patient.firstName}} {{patDetail.patient.lastName}}</h2>
+              </label>
+              <label class="item item-input item-floating-label">
+                <h3>Admission Date </h3>
+                <h2>{{patDetail.patient.admissionDate}}</h2>
+              </label>
+              <label class="item ">
+                <h2>Patient Status</h2>
+                <p>
+                    <medi-list ng-repeat="patientStatus in patient.current.patientStatus" text-overflow="mormal" >
+                        {{patientStatus.description}}
+                    </medi-list>
+                </p>
+              </label>
+              <label class="item ">
+                <h2>Diagnosis</h2>                
+                <p>
+                    <medi-list ng-repeat="diagnosis in patient.current.diagnosis" text-overflow="normal">
+                            {{diagnosis.description}}
+                    </medi-list>
+                </p>
+              </label>
+              <label class="item ">
+                <h2>Procedures</h2>            
+                <p>
+                    <medi-list ng-repeat="procedure in patient.current.procedures" text-overflow="normal">
+                            {{procedure.description}}
+                    </medi-list>
+                </p>
+              </label>              
+              <label class="item ">
+                <h2>Medication &amp Prescriptions</h2>    
+                <p>
+                    <medi-list ng-repeat="prescription in patient.current.prescriptions" text-overflow="normal">
+                            {{prescription.description + ' is ' }} <span class="balanced">{{prescription.status}}</span>
+                    </medi-list>
+                </p>        
+              </label>            
+              <label class="item ">
+                <h2>Medical Examinations</h2>            
+                <p>
+                    <medi-list ng-repeat="examination in patient.current.medicalExaminations" text-overflow="normal">
+                            {{examination.description + ' is ' }} <span class="balanced">{{examination.status}}</span>
+                    </medi-list>
+                </p>
+              </label>
+            </div>
+        </div>
+    </div>   
+  </ion-content>
+</ion-view>
+

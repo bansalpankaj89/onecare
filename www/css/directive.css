@@ -1,0 +1,18 @@
+/*medi-datetime-picker*/
+.medi-dtp {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.dtp-input .row .col {
+    text-align: center;
+}
+
+.medi-dtp-input {
+   
+    padding: 10px 20px;
+    /* border: 1px solid #387ef5; */
+    border-radius: 1px;
+    font-size: 18px;
+    background: #d7d7d7;
+}

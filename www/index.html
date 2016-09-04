@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">      
+    <link rel="stylesheet" href="lib/css/fonts.css"/>
+    <link rel="stylesheet" href="lib/css/font-awesome.min.css">
+    <link rel="stylesheet" href="lib/css/angular-material.min.css"/>
+    <link rel="stylesheet" href="lib/css/angular-material-icons.css"/>
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/timeline.css" rel="stylesheet">
+    <link href="css/history.css" rel="stylesheet">
+    <link href="css/ion-gallery.css" rel="stylesheet">
+    <link href="css/directory.css" rel="stylesheet">
+    <link href="css/chat.css" rel="stylesheet">
+    <link href="css/directive.css" rel="stylesheet">
+    <link href="app/directive/appointment-calendar/medi-calendar.css" rel="stylesheet">
+    <link href="css/toaster.min.css" rel="stylesheet">
+<!--
+    <link href="lib/css/bootstrap/css/bootstrap.css" rel="stylesheet"> 
+    <link href='lib/css/bootstrap-datepaginator.css'  rel='stylesheet'/>
+-->
+<!--    <link href="lib/css/datepicker.css" rel="stylesheet">   -->
+
+    
+    <link href="app/home/patient/detail/detail.css" rel="stylesheet">
+    <link href="app/home/task/task.css" rel="stylesheet">
+   
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+    
+    
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ui-bootstrap-tpls-0.13.0.min.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
+    <script src="lib/pouchdb/dist/pouchdb.min.js"></script>
+    <script src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="lib/angular-aria.min.js"></script>
+    <script src="lib/angular-material-icons.min.js"></script> 
+    <script src="lib/angular-material.min.js"></script> 
+    <script src="lib/ionic-timepicker/dist/ionic-timepicker.bundle.min.js"></script>
+    <script src="lib/moment/min/moment.min.js"></script>
+    <script src="lib/jquery.jqscribble.js"></script>
+    <script src="lib/aws-sdk/dist/aws-sdk.js"></script>
+    <script src="lib/bootstrap-datepicker.js"></script>
+    <script src="lib/ng-cordova.js"></script>
+    <script src="lib/angular-animate/angular-animate.min.js"></script>
+    <script src="lib/toaster.min.js"></script>
+    <script src="cordova.js"></script>
+    
+     <!--  Plugins  -->
+    <script src="lib/plugin/onezone-datepicker.min.js"></script>
+    <script src="lib/plugin/moment.min.js"></script>
+    <script src="lib/plugin/ion-gallery.min.js"></script>
+    <script src="lib/plugin/bootstrap-datepaginator.js"></script>
+    <script src="lib/firebase.js"></script>
+    <script src="lib/angularfire.min.js"></script>
+    <script src="lib/ionic-datepicker/dist/ionic-datepicker.bundle.min.js"></script>
+    
+    <!--  filters  -->
+    <script src="app/filters/filter.js"></script>
+    <script src="app/filters/fixed-number-len.filter.js"></script>
+    
+    <!-- services   -->
+    <script src="app/service/service.js"></script>
+    <script src="app/service/medical-examination-template.service.js"></script>
+    <script src="app/service/diagnosis.service.js"></script>
+    <script src="app/service/procedure.service.js"></script>
+    <script src="app/service/medication.service.js"></script>
+    <script src="app/service/patient.service.js"></script>
+    <script src="app/service/registration.service.js"></script>
+    <script src="app/service/admission.service.js"></script>
+    <script src="app/service/ward.service.js"></script>
+    <Script src="app/service/admission.service.js"></Script>
+    <script src="app/service/patient-transaction.service.js"></script>
+    <script src="app/service/prescribed-medication.service.js"></script>
+    <script src="app/service/staff.service.js"></script>
+    <script src="app/service/patient-observation.service.js"></script>
+    <script src="app/service/aws.service.js"></script>
+    <script src="app/service/patient-media.service.js"></script>
+    <script src="app/service/medical-examination-types.service.js"></script>
+    <script src="app/service/appointment.service.js"></script>
+    <script src="app/service/managers/medical-examination-task-manager.service.js"></script>
+    <script src="app/service/managers/task-manager.service.js"></script>
+    <script src="app/service/managers/workorder-manager.service.js"></script>
+    <script src="app/service/medical-examination.service.js"></script>
+    <script src="app/service/workorder.service.js"></script>
+    <script src="app/service/task.service.js"></script>
+    <script src="app/service/task-detail.service.js"></script>
+    <script src="app/service/managers/medication-task-manager.service.js"></script>
+    <script src="app/service/notes.service.js"></script>
+    <script src="app/service/discharge-appointment.service.js"></script>
+    <script src="app/service/notification.service.js"></script>
+
+    <!-- Models   -->
+    <script src="app/resources/model.js"></script>
+    <script src="app/resources/patient.factory.js"></script>
+    
+    <!-- directives   -->
+    <script src="app/directive/directive.js"></script>
+    <script src="app/directive/selection-list/medi-list.directive.js"></script>
+    <script src="app/directive/selection-list/medi-list-selection.directive.js"></script>
+    <script src="app/directive/dropdown/medi-dropdown.directive.js"></script>
+    <script src="app/directive/avatar/medi-avatar.directive.js"></script>
+    <script src="app/directive/toggle-button/medi-toggle-button.directive.js"></script>
+    <script src="app/directive/staff-info/medi-staff-info.directive.js"></script>
+    <script src="app/directive/timeline-summary/medi-timeline-update-summary.directive.js"></script>
+    <script src="app/directive/datetime-picker/medi-datetime-picker.directive.js"></script>
+    <script src="app/directive/draw-pad/medi-draw-pad.directive.js"></script>
+    <script src="app/directive/file-upload/medi-file-upload.directive.js"></script>
+    <script src="app/directive/appointment-calendar/medi-calendar.module.js"></script>
+    <script src="app/directive/appointment-calendar/medi-calendar.service.js"></script>
+    <script src="app/directive/appointment-calendar/medi-calendar.directive.js"></script>
+    <script src="app/directive/barcode-scanner/barcode-scanner.directive.js"></script>
+    
+    <!-- controllers    -->
+    <script src="app/controller/controller.js"></script>
+    <script src="app/home/home.controller.js"></script>
+    <script src="app/home/patient-list/patientlist.controller.js"></script>
+    <script src="app/home/patient/view/patient.controller.js"></script>
+    <script src="app/home/patient/admission/admission.controller.js"></script>
+    <script src="app/home/patient/detail/patient-detail.controller.js"></script>
+    <script src="app/home/patient/time-line/patient-timeline.controller.js"></script>
+    <script src="app/home/patient/media/patient-media.controller.js"></script>
+    <script src="app/home/patient/notification/patient-notification.controller.js"></script>
+    <script src="app/home/patient/history/patient-history.controller.js"></script>
+    <script src="app/home/registration/registration.controller.js"></script>
+    <script src="app/home/design-template/design-template.controller.js"></script>
+    <script src="app/home/settings/settings.controller.js"></script>
+    <script src="app/home/settings/diagnosis.controller.js"></script>
+    <script src="app/home/settings/procedures.controller.js"></script>
+    <script src="app/home/directory/directory.controller.js"></script>
+    <script src="app/home/chat/chat.controller.js"></script>
+    <script src="app/home/staff/staff.controller.js"></script>
+    <script src="app/home/staff/staffList.controller.js"></script>
+    <script src="app/home/patient/observation/observation.controller.js"></script>
+    <script src="app/home/task/task.controller.js"></script>
+    <script src="app/home/patient/appointment/patient-appointment.controller.js"></script>
+    <script src="app/home/task/laboratory/laboratory-task.controller.js"></script>
+    <script src="app/home/task/nurse/nurse-task.controller.js"></script>
+    <script src="app/home/patient/note/note.controller.js"></script>
+    <script src="app/home/favourite-diagnoisis/diagnosis.controller.js"></script>
+    <script src="app/home/facourite-procedures/procedure.controller.js"></script>
+    <script src="app/home/patient/discharge/discharge.controller.js"></script>
+    <script src="app/home/patient/consult/consult.controller.js"></script>
+    <script src="app/home/patient/transfer/transfer.controller.js"></script>
+    <script src="app/home/patient/editpatient/editPatient.controller.js"></script>
+    <!-- config -->
+    <script src="app/app.js"></script>
+    <script src="app/config/route.js"></script>
+    <script src="app/config/patient-status.const.js"></script>
+    <script src="app/config/staff-designation.const.js"></script>   
+    <script src="app/config/hospital-department.const.js"></script>
+    <script src="app/config/staff-speciality.const.js"></script>
+    <script src="app/config/aws-config.const.js"></script>
+    <script src="app/config/medical-examination-measurement-type.const.js"></script>
+    <script src="app/config/appointment-status.const.js"></script>
+    <script src="app/config/appointment-type.const.js"></script>
+  </head>
+    <body ng-app="mediDocApp">
+        <ion-pane>
+            <ion-nav-view></ion-nav-view>
+        </ion-pane>
+    </body>  
+</html>

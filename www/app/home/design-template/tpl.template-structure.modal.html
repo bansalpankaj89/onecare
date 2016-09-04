@@ -1,0 +1,34 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-positive app-color">
+        <h1 class="title txt-color">{{ action }} Template fields</h1> 
+        <div class="buttons">
+            <button ng-click="desiTempCtrl.addNewStructure()" class="button button-icon icon ion-plus txt-color"></button> 
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <div class="padding">
+            <div class="button-bar">
+                <a class="button app-color txt-color" ng-click="desiTempCtrl.closeTemplateStructureModal()">Cancel</a>
+                <a class="button button-positive app-color txt-color" ng-click="desiTempCtrl.saveTemplateStructure()">Save</a>
+            </div>
+        </div>
+        <fieldset  class ="log-record" ng-repeat="logDetail in template.log track by $index">
+            <div class="row">
+                <div class="col col-45">
+                    <label class="item item-input">
+                        <input type="text" placeholder="Name" ng-model="logDetail.name">
+                    </label>
+                </div>
+                <div class="col col-45">              
+                    <label class="item item-input">
+<!--                        <input type="text" placeholder="Unit" ng-model="logDetail.unit">-->
+                        <medi-unit-dropdown-list selected-item="logDetail.unit"></medi-unit-dropdown-list>
+                    </label>
+                </div>  
+                <div class="col col-10">    
+                    <button class="button button-icon icon ion-android-cancel del-color" ng-show="$last" ng-click="desiTempCtrl.removeStructure()"></button>
+                </div>  
+            </div>
+        </fieldset> 
+    </ion-content>
+</ion-modal-view>

@@ -1,0 +1,20 @@
+<ul class="list search-text list-search-text">
+      <li class="item item-input">
+            <i class="icon ion-ios-search placeholder-icon" style="padding-left: 15px;"></i>
+            <input type="search" placeholder="Search" ng-model="searchFilter" ng-change="scrollTop()">
+    </li>
+</ul>
+<ion-scroll direction="y" style="height: 200px">
+    <ul class="list">
+        <medi-list ng-repeat="item in itemCollection |  filter:searchFilter | orderBy : '-selected'" item-selected="item.selected" 
+           on-select="itemSelected(item)" is-checked="true">
+            <medi-avatar avatar="item.pic"></medi-avatar>
+           {{item.description}}
+             <span ng-if="item.process" class="control-right positive" style="padding-left:15px;padding-right:15px;"
+              ng-click="openProcess(item.process)">
+             <i class="icon ion-arrow-expand"></i></span>
+        </medi-list>
+    </ul>
+</ion-scroll>
+
+

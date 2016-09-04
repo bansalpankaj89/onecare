@@ -1,0 +1,13 @@
+<ion-view view-title="Chat" hide-back-button="false">
+    <ion-content class="padding" start-y="120">
+        <ol class="messages">
+          <li ng-repeat="message in messages" ng-bind-html="message.content"></li>
+        </ol>
+      </ion-content>
+      <ion-footer-bar class="bar-frosted">
+        <button class="button button-clear button-positive" ng-click="add()">Add Message</button>
+      </ion-footer-bar>
+</ion-view>
+
+      
+     

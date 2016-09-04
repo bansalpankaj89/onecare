@@ -1,0 +1,14 @@
+<div>
+    <ion-item class="item-stable"
+    ng-click="toggleGroup()"
+    ng-class="{'ion-ios-checkmark':isItemSelected }" >      
+      {{itemName}} 
+        <!--    <span class="selected-list-item" ng-if="isItemSelected()"> {{(multiSelect === 'false') ? ' - ' + selectedItem : '-'}}</span>-->
+        <span class="control-right">{{selectedItem}}
+        <i class="icon control-right" ng-class="isGroupShown(group) ? 'ion-android-arrow-dropup-circle' : 'ion-android-arrow-dropdown-circle'"></i></span>
+
+    </ion-item>
+    <div ng-show="showContent">
+        <ng-transclude></ng-transclude>
+    </div>
+</div>

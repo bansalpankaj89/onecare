@@ -1,0 +1,29 @@
+<div class="medication-prescription">
+    <ul class="list">
+        <medi-dropdown item-name="Drug Name">
+            <medi-list-selection ng-if="drugCollection" item-collection="drugCollection" 
+                selected-items="prescription.selectedDrugs"  multi-select="false">                    
+            </medi-list-selection>
+        </medi-dropdown>   
+        <li class="item drug-dosage">
+            <label class="item-input">
+                <span class="label-text">Dosage : </span><input type="text" placeholder="Dosage" ng-model="prescription.dosage">
+            </label>
+        </li>
+        <medi-dropdown item-name="Drug Routine">
+            <medi-list-selection ng-if="routeCollection" item-collection="routeCollection" 
+                selected-items="prescription.selectedRoutine"  multi-select="false">                    
+            </medi-list-selection>
+        </medi-dropdown>        
+        <medi-dropdown item-name="Drug Frequency">
+            <medi-list-selection ng-if="drugFrequencyCollection" item-collection="drugFrequencyCollection" 
+                selected-items="prescription.selectedFrequency"  multi-select="false">                    
+            </medi-list-selection>
+        </medi-dropdown>
+        <li class="item drug-notes">
+            <label class="item-input">
+                <span class="label-text">Notes : </span><input type="text" placeholder="Notes" ng-model="prescription.medicationNote">
+            </label>
+        </li>   
+    </ul>
+</div>

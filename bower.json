@@ -1,0 +1,16 @@
+{
+  "name": "MediDocApp",
+  "private": "true",
+  "devDependencies": {
+    "ionic": "driftyco/ionic-bower#1.2.4"
+  },
+  "dependencies": {
+    "angular-ui-router": "~0.2.18",
+    "aws-sdk": "aws-sdk-js#~2.4.0",
+    "font-awesome": "fontawesome#~4.5.0",
+    "ionic-datepicker": "~1.1.0",
+    "ionic-timepicker": "~0.5.1",
+    "moment": "~2.13.0",
+    "pouchdb": "~5.3.1"
+  }
+}

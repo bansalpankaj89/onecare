@@ -1,0 +1,19 @@
+
+
+.timeline .timeline-item {
+    margin-left: 10px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 8px;
+}
+
+.timeline .timeline-stats {
+    position: relative;
+    font-size: 12px;
+    color: #7F8C8D;
+}
+
+
+.divider-title {    
+    font-size: 20px;
+}
+

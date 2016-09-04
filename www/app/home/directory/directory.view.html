@@ -1,0 +1,73 @@
+<style type="text/css">
+    .directory-item img {        
+        position: fixed;
+        width: 40px;
+        height: 40px;
+        margin-top: -2px !important;
+        border-radius: 50%;
+        border: 2px solid white;
+    }
+    
+    .directory-item h2,
+    .directory-item p {
+
+        padding-left: 50px;
+        margin-top: -5px;
+    }
+
+    .header-color div{
+          background-color: #f5f5f5 !important;
+    }
+    
+</style>
+
+
+<ion-view view-title="Hospital Directory" hide-back-button="false">
+<ion-header-bar class="bar-light bar-subheader">
+	<input type="search" placeholder="Filter contacts..." ng-model="search"
+	ng-focus="searchFocused = true" ng-blur="searchFocused = false" ng-change="scrollTop()">
+	<button ng-if="search.length" class="button button-icon ion-android-close input-button" ng-click="clearSearch()">
+	</button>
+</ion-header-bar>
+<ion-content>
+  <ion-list class="directory-list">
+        <ion-item  class="directory-item" 
+        collection-repeat="item in getContacts()"
+        collection-item-height="getItemHeight(item)"
+        collection-item-width="getItemWidth(item)"
+        ng-class="{'item-divider header-color': item.isLetter}">
+           <div ng-if="item.isLetter">
+               <h2 style="padding-left: 0px;margin-top: -10px;">{{item.letter}}</h2>
+           </div>
+           <div ng-if="!item.isLetter">
+            <img class="menu-picture" ng-if="!item.isLetter" ng-src="/img/{{item.image}}">
+            <h2>{{item.letter || (item.title + ' ' + item.first_name+' '+item.last_name )}}</h2>
+            <p ng-if="!item.isLetter">{{item.speciality}}</p>
+            <ion-option-button class="button-positive break-word"  ng-if="!item.isLetter">
+                <i class="icon ion-android-favorite"></i>
+            </ion-option-button>
+            <ion-option-button class="button-balanced break-word"  ng-if="!item.isLetter">
+                <i class="icon ion-ios-telephone"></i>
+            </ion-option-button>
+            </div>
+        </ion-item>
+<!--
+    <a class="item directory-item" collection-repeat="item in getContacts()"
+      collection-item-height="getItemHeight(item)" collection-item-width="getItemWidth(item)"
+      ng-href="https://www.google.com/#q={{item.first_name + '+' + item.last_name}}"
+      ng-style="{'line-height': getItemHeight(item) + 'px'}"
+      ng-class="{'item-divider': item.isLetter}">
+      <img class="directory-picture" ng-if="!item.isLetter" ng-src="/img/{{item.image}}">
+      <!-- <img class="directory-picture" ng-if="!item.isLetter" ng-src="http://placekitten.com/60/{{55 + ($index % 10)}}"> -->
+      <span class="{{item.isLetter ? '':'directory-text'}}">
+      {{item.letter || (item.designation+ ' ' + item.first_name+' '+item.last_name )}} - {{item.speciality}}</span>
+      <span ng-if="!item.isLetter" class="directory-btn">
+   <!--    <button class="button button-icon icon ion-android-favorite" 
+      style="color: #B80000"></button> -->
+      <button class="button button-icon icon ion-ios-telephone" style="color: #1F64BC"></button>
+      </span>
+    </a>
+-->
+  </ion-list>
+</ion-content>
+</ion-view>

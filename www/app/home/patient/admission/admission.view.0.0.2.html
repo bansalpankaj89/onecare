@@ -1,0 +1,211 @@
+<style type="text/css">
+    .card, .list-inset {
+        margin: 0px;
+    }
+.input-readonly{
+    background-color: #fbfbfb;
+}
+
+</style>
+
+<ion-view view-title="Patient Admission" hide-back-button="false">
+<ion-header-bar class="bar-light bar-subheader" style="height: 60px;top: 35px;">
+    <div class="search-bar">
+        <div class="item item-input-inset">
+          <label class="item-input-wrapper" class="search-input">
+            <i class="icon ion-search placeholder-icon"></i>
+            <input type="text" placeholder="Search with NRIC/FIN..." ng-model="admissionCtrl.identity_id">
+          </label>
+          <button class="button icon ion-search" style="background-color:#eee;" ng-click="admissionCtrl.searchRegisteredPat()"> 
+          </button>
+        </div>
+    </div>        
+</ion-header-bar>
+
+<ion-content>
+<div class="list list-inset">
+   <div class="row responsive-md"> 
+        <div class="col"> 
+        <!-- <div class="divider-title" style="text-align: center;">Patient Information</div> -->
+        <div class="item item-divider" style="text-align: center;">Patient Information</div>
+       </div>
+    </div> 
+    <div class="row responsive-md"> 
+      <div class="col"> 
+        <label class="item item-input input-readonly">         
+            <span class="input-label">Full Name </span>
+            <span class="input-text">{{admissionCtrl.regPatientList.first_name}} {{admissionCtrl.regPatientList.last_name}}
+          {{admissionCtrl.regPatientList.other_name}}</span>
+        </label>
+      </div>
+      <div class="col"> 
+        <label class="item item-input input-readonly">
+            <span class="input-label">Identity Id </span>
+            <span class="input-text">{{admissionCtrl.regPatientList.identity_id}}</span>
+        </label>
+      </div>
+    </div>
+    <div class="row responsive-md"> 
+      <div class="col"> 
+        <label class="item item-input input-readonly">
+          <span class="input-label">D.O.B</span>
+            <span class="input-text">{{admissionCtrl.regPatientList.dob | limitTo:16 }}</span>
+        </label>
+      </div>
+      <div class="col"> 
+        <label class="item item-input input-readonly">
+          <span class="input-label">Blood Group</span>
+            <span class="input-text">{{admissionCtrl.regPatientList.blood_group}}</span>
+        </label>
+      </div>
+      <div class="col"> 
+        <label class="item item-input input-readonly">
+          <span class="input-label">Gender </span>
+            <span class="input-text">{{admissionCtrl.regPatientList.gender}}</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="row responsive-md"> 
+      <div class="col"> 
+        <label class="item item-input">
+          <span class="input-label">Contact No </span>
+          <input type="tel" placeholder="Contact No" ng-model="admissionCtrl.regPatientList.contact_no">
+        </label>
+      </div>
+      <div class="col"> 
+        <label class="item item-input">
+          <span class="input-label">Guardian Name</span>
+          <input type="text" placeholder="Guardian Name" ng-model="admissionCtrl.regPatientList.guardian_name">
+        </label>
+      </div> 
+    </div>
+    <div class="row responsive-md"> 
+      <div class="col">
+        <label class="item item-input">
+          <span class="input-label">Address</span>
+          <input type="text" placeholder="Address" ng-model="admissionCtrl.regPatientList.address">
+        </label>
+      </div>
+    </div>
+
+    <div class="row responsive-md"> 
+        <div class="col"> 
+            <!-- <div class="divider-title" style="text-align: center;">Observations</div> -->
+            <div class="item item-divider" style="text-align: center;">Observations</div>
+       </div>
+    </div> 
+    <div class="row responsive-md"> 
+      <div class="col"> 
+        <label class="item item-input">
+          <span class="input-label">Blood Pressure</span>
+          <input type="text" placeholder="Blood Pressure" ng-model="admissionCtrl.admissionList.bp">
+        </label>
+      </div>
+      <div class="col"> 
+        <label class="item item-input">          
+          <span class="input-label">Pulse</span>
+          <input type="text" placeholder="Pulse" ng-model="admissionCtrl.admissionList.pulse">
+        </label>
+      </div> 
+    </div>
+    <div class="row responsive-md"> 
+      <div class="col col-50">
+        <label class="item item-input">
+          <span class="input-label">Signs</span>
+            <textarea rows="4" cols="45" placeholder="Signs" ng-model="admissionCtrl.regPatientList.signs"></textarea>
+        </label>
+      </div>
+      <div class="col col-50">
+        <label class="item item-input">
+          <span class="input-label">Symptoms</span>
+          <textarea rows="4" cols="45" placeholder="Symptoms" ng-model="admissionCtrl.regPatientList.symptoms"></textarea>
+        </label>
+      </div>
+    </div>
+    <div class="row responsive-md"> 
+      <div class="col col-50">
+        <label class="item item-input">
+          <span class="input-label">History</span>
+          <textarea rows="4" cols="45" placeholder="History" ng-model="admissionCtrl.regPatientList.history"></textarea>
+        </label>
+      </div>
+      <div class="col col-50">
+        <label class="item item-input">
+          <span class="input-label">Allergies</span>
+            <textarea rows="4" cols="45" placeholder="Allergies" ng-model="admissionCtrl.regPatientList.allergies"></textarea>
+            
+        </label>
+      </div>
+    </div>
+    <div class="row responsive-md"> 
+        <div class="col"> 
+         <div class="item item-divider" style="text-align: center;">Assign Bed</div>
+     <!--        <div class="divider-title" style="text-align: center;">Assign Bed</div> -->
+       </div>
+    </div> 
+    <div class="row responsive-md"> 
+        <div class="col">
+            <label class="item item-input item-select">
+            <span class="input-label">Status</span>
+                <select ng-model="admissionCtrl.admissionList.status">
+                    <option ng-repeat="status in patientStatus" value="{{status.value}}">{{status.description}}</option>
+                </select>
+            </label>
+        </div>
+        <div class="col">
+            <label class="item item-input item-select">
+            <span class="input-label">Department</span>
+                <select ng-model="admissionCtrl.selecteddepartment">
+                    <option ng-repeat="department in hospitalDepartments" value="{{department.value}}">{{department.description}}</option>
+                </select>
+            </label>
+        </div>
+    </div>  
+    <div class="row responsive-md">
+        <div class="col">
+            <label class="item item-input item-select">
+                <span class="input-label">Ward</span>
+                <select ng-model="admissionCtrl.selectedWard" ng-init="admissionCtrl.selectedWard=admissionCtrl.wardList[0]" ng-options="ward.ward_no for ward in admissionCtrl.wardList"></select>
+                </label>
+        </div>
+        <div class="col">
+             <label class="item item-input item-select">
+                <span class="input-label">Bed</span>
+                <select ng-model="admissionCtrl.selectedBed" ng-options="bed.bed_no for bed in admissionCtrl.selectedWard.bedDetails | filter: filterAvalibleBed">
+                </select>
+            </label>
+        </div>
+     </div> 
+
+
+    <div class="row responsive-md"> 
+        <div class="col"> 
+           <div class="item item-divider" style="text-align: center;">Assign Staff</div>
+              <!-- <div class="divider-title" style="text-align: center;">Assign Staff</div> -->
+       </div>
+    </div> 
+     <div class="row responsive-md"> 
+        <div class="col">
+            <label class="item item-input item-select">
+                <span class="input-label">Designation</span>
+                <select ng-model="admissionCtrl.selecteddesignation">
+                    <option ng-repeat="designation in staffDesignations" value="{{designation.value}}">{{designation.description}}</option>
+                </select>
+            </label>
+        </div>
+        <div class="col">
+            <label class="item item-input item-select">
+                <span class="input-label">Staff</span>
+                <select ng-model="admissionCtrl.selectedStaff" ng-options="staff.full_name for staff in admissionCtrl.staffList | filter: filterStaff">
+                </select>
+            </label>
+        </div>
+    </div> 
+
+    <div class="padding center">
+            <button class="button button-block button-balanced" ng-click="admissionCtrl.saveAdmission()">Admit Patient</button>
+    </div>
+</div>
+</ion-content>
+</ion-view>

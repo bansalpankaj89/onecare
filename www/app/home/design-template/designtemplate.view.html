@@ -1,0 +1,133 @@
+<style type="text/css">
+    
+    input {
+        text-align: right;
+    }
+    
+    textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"]
+    {
+        background: #f7f7f7;
+        margin-right: 5px !important;
+    }
+    
+    .item-input textarea {
+        width: 64%;
+        height: 100px;
+    }
+    
+    .taskList-statusbar {
+        border-left: 5px solid #387ef5 !important
+    }
+</style>
+   <ion-view view-title="Design Template" hide-back-button="false">
+    <ion-header-bar class="bar-light row bar-subheader">
+        <div class="search-bar col-90">
+            <div class=" item item-input-inset">
+              <label class="item-input-wrapper" class="search-input">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" placeholder="Search" ng-model="templateSearch">
+              </label>
+            </div>
+        </div> 
+    </ion-header-bar>
+    <ion-nav-buttons side="right">
+        <button ng-click="desiTempCtrl.prepareNewTemplate()" class="button button-icon icon ion-plus txt-color"></button>
+    </ion-nav-buttons> 
+    <ion-content>
+        <div layout="column" class="relative" layout-fill role="main">
+            <div class="row responsive-md">
+                <div class="col col-40">                      
+                   <ion-list>
+                    <ion-item ng-repeat="template in desiTempCtrl.medicalExaminationTemplates" 
+                       ng-click="desiTempCtrl.viewTemplate(template)"
+                       ng-class="{'taskList-statusbar': selectedItem == template}">
+                        <h2>{{template.name}} </h2>
+                        <p>{{template.category}}</p>
+                        <ion-option-button class="button-positive break-word" ng-click="desiTempCtrl.editTemplateDetail(template)">
+                            Edit Details
+                        </ion-option-button>
+                        <ion-option-button class="button-balanced break-word" ng-click="desiTempCtrl.editTemplateField(template)">
+                            Add Fields
+                        </ion-option-button>
+                    </ion-item>
+                    </ion-list>
+                </div>
+                <div class="col col-60">
+                    <div class="list">
+                       <div ng-hide="isEditField">
+                        <label class="item item-input item-select">
+                            <span class="input-label">Category</span>
+                            <select ng-model="desiTempCtrl.template.category" ng-disabled="isView">  
+                                <option value="{{cat.$value}}" ng-repeat="cat in desiTempCtrl.examinationCategories">{{cat.$value}}</option>
+                            </select>
+                        </label>
+                        <label class="item item-input">
+                           <span class="input-label">Name</span>
+                            <input type="text" ng-model="desiTempCtrl.template.name" ng-disabled="isView">
+                        </label>
+                        <label class="item item-input">                            
+                           <span class="input-label">Sample to be collected</span>
+                            <label class="toggle">
+                                <input type="checkbox" ng-model="desiTempCtrl.template.shouldCollectSample" ng-disabled="isView"> 
+                                <div class="track">
+                                    <div class="handle"></div>
+                                </div>
+                            </label> 
+                        </label>
+                        <label class="item item-input">
+                           <span class="input-label">Pre Condition</span>
+                            <textarea type="text" col="20" row="5" ng-model="desiTempCtrl.template.preCondition" ng-disabled="isView"></textarea>
+                        </label>                                                
+                        <label class="item item-input" ng-show="isEditMaster">
+                          <div class="button-bar">
+                           <button class="button button-positive" ng-click="desiTempCtrl.saveExaminationTemplate()" ng-disabled="isView">Save</button>
+                           <button class="button" ng-click="desiTempCtrl.saveExaminationTemplate()">Cancel</button>
+                           </div>
+                        </label>
+                       </div>
+                        <hr/>
+                        <div ng-show="isEditField">
+                            <label class="item item-input">
+                               <span class="input-label">Filed Name</span>
+                                <input type="text" ng-model="desiTempCtrl.newField.name">
+                            </label>
+                            <label class="item item-input item-select">
+                               <span class="input-label">Measurement</span>
+                               <select ng-model="desiTempCtrl.newField.measurement" >  
+                                    <option value="{{type}}" ng-repeat="type in desiTempCtrl.measurementTypes">{{type}}</option>
+                                </select>                                
+                            </label>                            
+                            <label class="item item-input">
+                               <span class="input-label">Limit Range</span>
+                                <input type="text" ng-model="desiTempCtrl.newField.limit_range">
+                            </label>                     
+                            <label class="item item-input">
+                               <button class="button button-positive" ng-click="desiTempCtrl.addTemplateField()">Add Field</button>
+                            </label>
+                        </div>                        
+                        <ion-scroll direction="y" style="height: 380px" ng-show="isView || isEditField">
+                            <label class="item item-input" ng-repeat="field in desiTempCtrl.template.fields">
+                                <div class="row">
+                                    <div class="col-5">
+                                        <a class="button button-small button-assertive">
+                                            X
+                                        </a>
+                                    </div>
+                                    <div class="col col-50">
+                                        {{field.field}}
+                                    </div>
+                                    <div class="col col-30">
+                                        {{field.measurement}}
+                                    </div>                                    
+                                    <div class="col col-35">
+                                        {{field.limit_range}}
+                                    </div>
+                                </div>
+                            </label>
+                        </ion-scroll>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

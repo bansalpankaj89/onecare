@@ -1,0 +1,203 @@
+.padding_zero {
+  padding: 0;
+}
+
+.medi_calendar_popup .font_bold {
+  font-weight: bold;
+}
+.medi_calendar_popup .padding_top_zero {
+  padding-top: 0;
+}
+.medi_calendar_popup .padding_left_5px {
+  padding-left: 5px;
+}
+.medi_calendar_popup .padding_right_5px {
+  padding-right: 5px;
+}
+.medi_calendar_popup .calendar_grid {
+  height: 215px;
+}
+.medi_calendar_popup .today {
+  border: 1px solid #387ef5;
+  border-radius: 50%;
+}
+.medi_calendar_popup .selected_date {
+  background-color: #387ef5;
+  border-radius: 50%;
+  color: #fff;
+  font-weight: bold;
+}
+.medi_calendar_popup .popup-head {
+  background-color: #387ef5;
+  display: none;
+}
+.medi_calendar_popup .popup-head .popup-title {
+  color: #ffffff;
+}
+.medi_calendar_popup .popup-head .popup-sub-title {
+  color: #ffffff;
+}
+.medi_calendar_popup .popup-body {
+  background-color: #ffffff;
+}
+.medi_calendar_popup .popup-body .selected_date_full {
+  background-color: #019688;
+  margin: -10px -10px 0 -10px;
+  height: 45px;
+  text-align: center;
+  font-weight: bold;
+  color: #fff;
+  line-height: 45px;
+  font-size: 18px;
+}
+.medi_calendar_popup .popup-body .select_section {
+  padding: 1px 5px;
+}
+.medi_calendar_popup .popup-body .pointer_events_none {
+  pointer-events: none;
+  color: #aaaaaa !important;
+}
+.medi_calendar_popup .popup-body .month_select, .medi_calendar_popup .popup-body .year_select {
+  border: none;
+  border-bottom: 1px solid #387ef5;
+  padding: 0;
+}
+.medi_calendar_popup .popup-body .month_select .input-label, .medi_calendar_popup .popup-body .year_select .input-label {
+  padding: 2px 0;
+  width: 0;
+}
+.medi_calendar_popup .popup-body .month_select select, .medi_calendar_popup .popup-body .year_select select {
+  left: 10px;
+  border: none;
+  padding: 0;
+}
+.medi_calendar_popup .popup-body .month_select:after, .medi_calendar_popup .popup-body .year_select:after {
+  right: 5px;
+  color: #387ef5;
+}
+.medi_calendar_popup .popup-body .show_nav {
+  padding: 10px 0 0 0;
+}
+.medi_calendar_popup .popup-body .show_nav .prev_btn_section {
+  padding: 5px 0;
+  text-align: left;
+}
+.medi_calendar_popup .popup-body .show_nav .prev_btn_section button {
+  padding: 0;
+}
+.medi_calendar_popup .popup-body .show_nav .next_btn_section {
+  padding: 5px 0;
+  text-align: right;
+}
+.medi_calendar_popup .popup-body .show_nav .next_btn_section button {
+  padding: 0;
+}
+.medi_calendar_popup .popup-body .button-clear {
+  color: #387ef5;
+}
+.medi_calendar_popup .popup-buttons {
+  padding: 0;
+  min-height: 45px;
+}
+.medi_calendar_popup .popup-buttons button {
+  background-color: #387ef5;
+  border-radius: 0;
+  margin-right: 1px;
+  color: #ffffff;
+}
+
+/*
+.medi_calendar_modal .header, .medi_calendar_modal .footer {
+  background-color: #387ef5;
+}
+*/
+.medi_calendar_modal .header .title, .medi_calendar_modal .header .button, .medi_calendar_modal .footer .title, .medi_calendar_modal .footer .button {
+  color: #ffffff;
+    padding: 5px 0px 5px 5px;
+}
+
+.medi_calendar_modal .header h1.title {
+    margin-bottom: 0px;
+    text-align: center;
+    color: #387ef5;
+    text-shadow: #e2e2e2 1px 1px;
+}
+.medi_calendar_modal .footer .button-block {
+  margin: 0;
+}
+.medi_calendar_modal .today {
+  border: 1px solid #387ef5;
+}
+.medi_calendar_modal .selected_date {
+  background-color: #eaeaea;
+  color: #fff;
+  font-weight: bold;
+}
+.medi_calendar_modal .pointer_events_none {
+  pointer-events: none;
+  color: #aaaaaa !important;
+}
+.medi_calendar_modal .select_section {
+  padding: 1px 5px;
+}
+.medi_calendar_modal .button-clear {
+  color: #387ef5;
+}
+.medi_calendar_modal .month_select, .medi_calendar_modal .year_select {
+  border: none;
+  border-bottom: 1px solid #387ef5;
+  padding: 0;
+}
+.medi_calendar_modal .month_select .input-label, .medi_calendar_modal .year_select .input-label {
+  padding: 2px 0;
+  width: 0;
+}
+.medi_calendar_modal .month_select select, .medi_calendar_modal .year_select select {
+  left: 10px;
+  border: none;
+  padding: 0 10px;
+}
+.medi_calendar_modal .month_select:after, .medi_calendar_modal .year_select:after {
+  right: 5px;
+  color: #387ef5;
+}
+.medi_calendar_modal .padding_left_5px {
+  padding-left: 5px;
+}
+.medi_calendar_modal .padding_right_5px {
+  padding-right: 5px;
+}
+.medi_calendar_modal .date_col {
+  height: 50px;
+  line-height: 50px;
+}
+
+/*
+.medi_calendar_modal .col.padding_zero.date_col {
+    background: #cbddfc;
+}
+.medi_calendar_modal .date_cell.ng-binding {
+    background: white;
+}
+
+*/
+
+.medi_calendar_modal .selected_date .date_cell{
+    background: #387ef5 !important;
+    
+}
+.medi_calendar_modal .font_bold {
+  font-weight: bold;
+}
+.medi_calendar_modal .font_22px {
+  font-size: 22px;
+}
+.platform-android .medi_calendar_modal .bar .title.title-left {
+  text-align: center;
+}
+.platform-android .medi_calendar_modal select {
+  left: 25%;
+}
+.platform-ios .medi_calendar_modal select {
+  left: 5%;
+}

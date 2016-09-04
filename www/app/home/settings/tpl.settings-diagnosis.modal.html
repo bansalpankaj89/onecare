@@ -1,0 +1,52 @@
+<ion-view>
+<ion-view view-title="Manage Diagnosis" hide-back-button="false">
+<ion-nav-buttons side="right">
+    <button ng-click="diaCtrl.addDiagnosis()" class="button button-icon icon ion-plus txt-color"></button> 
+</ion-nav-buttons> 
+ <!--    <ion-header-bar class="bar-positive app-color">
+        <h1 class="title txt-color">Diagnosis</h1> 
+        <div class="buttons">
+            <button ng-click="diaCtrl.addDiagnosis()" class="button button-icon icon ion-plus txt-color"></button> 
+        </div>
+    </ion-header-bar> -->
+    <ion-content>
+        <div class="padding">
+            <div class="list">
+                <label class="item item-input">
+                    <input type="text" placeholder="Description" ng-model="diaCtrl.diagnosis.description">
+                </label>
+                <label class="item item-input">
+                    <input type="text" placeholder="ID" ng-model="diaCtrl.diagnosis.id">
+                </label>
+                <label class="item item-input">
+                    <input type="tel" placeholder="Web Reference" ng-model="diaCtrl.diagnosis.link">
+                </label>
+                <label class="item item-input">
+                    <input type="text" placeholder="Summary" ng-model="diaCtrl.diagnosis.summary">
+                </label>
+            </div>
+            <div class="button-bar">
+                <a class="button app-color txt-color" ng-click="diaCtrl.closeTemplateStructureModal()">Cancel</a>
+                <a class="button button-positive app-color txt-color" ng-click="diaCtrl.saveDiagnosis()">Save</a>
+            </div>
+        </div>        
+        <ion-scroll direction="y" style="height: 60%">
+            <div  class ="list" ng-repeat="diagnosis in diaCtrl.diagnosisCollection">
+                <div class="row" ng-class="{active: diaCtrl.diagnosis == diagnosis }">
+                    <div class="col col-60">
+                        {{diagnosis.description}}
+                    </div>
+                    <div class="col col-30">              
+                        {{diagnosis.id}} - {{diagnosis_link}}
+                    </div>  
+                    <div class="col col-3">    
+                        <button class="button button-small button-icon icon ion-edit" ng-click="diaCtrl.editDiagnosis(diagnosis)"></button>
+                    </div>
+                    <div class="col col-3">     
+                        <button class="button button-small button-icon icon ion-android-cancel del-color" ng-click="diaCtrl.removeDiagnosis(diagnosis)"></button>
+                    </div>  
+                </div>
+            </div> 
+        </ion-scroll>
+    </ion-content>
+</ion-view>

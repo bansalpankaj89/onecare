@@ -1,0 +1,6 @@
+{
+    "name": "MediDocApp",
+    "description": "A simple Ionic app for Heroku",
+    "repository": "https://github.com/bansalpankaj89/onecare",
+    "keywords": ["ionic"]
+}
